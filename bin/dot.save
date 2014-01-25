@@ -1,0 +1,10 @@
+#!/usr/local/bin/zsh
+
+pushd
+
+cd ~/.dotfiles
+git add -A
+git commit $1
+git push
+
+popd

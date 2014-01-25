@@ -1,0 +1,23 @@
+#!/usr/local/bin/zsh
+
+
+#
+# Update dotfiles
+# 
+cd ~/.dotfiles
+git pull
+
+
+#
+# Update Homebrew
+#
+brew update
+brew upgrade
+
+#
+# Update Gems
+gem update --system
+gem update
+gem cleanup
+
+
