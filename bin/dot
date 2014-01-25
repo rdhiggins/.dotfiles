@@ -14,6 +14,7 @@ git pull
 #
 brew update
 brew upgrade
+brew cleanup
 
 #
 # Update rvm
