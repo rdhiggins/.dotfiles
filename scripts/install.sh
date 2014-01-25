@@ -1,22 +1,34 @@
 #!/bin/bash
 
+DOTFILES_ROOT="`pwd`"
 
-function link_file {
-	[[ -s $2 ]] &&rm $2
-	ln -s $1 $2 
+function link_file () {
+	if [ -s $2 ]
+	then
+		rm $2
+		ln -s $1 $2 
+		echo "Linked $1 to $2"
+	else
+		echo "$2 is not linked"
+	fi
+
+}
+
+install_dotfiles () {
+
+  for source in `find $DOTFILES_ROOT -maxdepth 2 -name \*.symlink`
+  do
+    dest="$HOME/.`basename \"${source%.*}\"`"
+
+    link_file $source $dest
+
+  done
+
 }
 
 
-# Bash config
-link_file ~/.dotfiles/bash/bashrc ~/.bashrc
-link_file ~/.dotfiles/bash/bash_profile ~/.bash_profile
-
-# Zsh config
-link_file ~/.dotfiles/zsh/zshrc ~/.zshrc
+install_dotfiles
 
 # Bin Directory
 link_file ~/.dotfiles/bin ~/bin
 
-# Git Config
-link_file ~/.dotfiles/git/gitconfig ~/.gitconfig
-link_file ~/.dotfiles/git/gitignore_global ~/.gitignore_global
