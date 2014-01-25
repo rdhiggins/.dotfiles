@@ -16,7 +16,13 @@ brew update
 brew upgrade
 
 #
+# Update rvm
+# 
+rvm get stable
+
+#
 # Update Gems
+# 
 gem update --system
 gem update
 gem cleanup
