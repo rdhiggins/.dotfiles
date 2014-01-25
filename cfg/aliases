@@ -1,0 +1,186 @@
+#!/bin/bash
+
+alias hdu='du -h . | grep "^[0-9\.]\+G"'
+alias edt='st -w'
+alias edit='st'
+alias editp='st ../${PWD##*/}'
+alias edot='st ~/.dotfiles'
+
+alias pud='pushd .'
+alias pod='popd'
+
+alias dir="ls -laGh"
+alias tu='top -o cpu'       # cpu
+alias tm='top -o vsize'     # Memory
+
+alias ccache='dscacheutil -flushcache'
+
+alias xcalc='open ~/ios.workspace/StackCalc/StackCalc.xcworkspace'
+alias stc='cd ~/ios.workspace/StackCalc'
+
+# Rails
+# alias rv='ruby -v'
+# alias rg='bundle exec rails g'
+# alias rs='bundle exec rails s'
+# alias rc='bundle exec rails c'
+# alias rt='bundle exec rake spec'
+# alias rdb='bundle exec rake db:migrate && rake db:seed'
+alias rgrd='vsplit_tab "bundle exec guard"'
+alias rser='vsplit_tab rs'
+alias rpry='pry -r ./config/environment'
+
+alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
+alias ssh-syn='ssh-add ~/.ssh/id_synology'
+
+# Glyph
+alias glyph='open ~/Workspace/html/glyphicons_pro/glyphicons/web/html_css/index.html'
+
+# Quicklook
+alias ql='qlmanage -p $@'
+
+# Frequent Directories
+alias ss='cd ~/rails.Workspace/spazsoft'
+alias sc='cd ~/tmp'
+alias flsc='rm -rf ~/tmp/*'
+alias bin='cd ~/bin'
+alias dotfiles='cd ~/bin/dotfiles'
+
+# Edit and reload bash configurations
+alias reload='source ~/.zshrc'
+alias ea='st -w $DOT/cfg/aliases && reload'
+alias ee='st -w $DOT/cfg/env && reload'
+
+function gc() {
+  git add -A .
+  git commit
+}
+
+function popcommands {
+  history |
+    awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' |
+    sort -rn |
+    head
+}
+
+function new_rails {
+  scrolls new ${1} -s rspec capybara guard
+  cd ${1}
+  rails g controller Welcome index
+}
+
+function nr {
+  rails new ${1} --skip-test-unit -m ~/.dotfiles/rails/app_template.rb
+}
+
+function ff {
+  find . -iname ${1} -print
+}
+
+function ff.h {
+  find ~ -iname ${1} -print
+}
+
+function md {
+  # mkdir -p $1
+  # cd $1
+  case $1 in
+     -c) mkdir -p "$2" && cd "$2" ;;
+     *) mkdir -p "$@" ;;
+  esac
+}
+
+function mf {
+  touch $1
+  edit $1
+}
+
+
+# Git Aliases
+alias gs='git status'
+alias ga='git add .'
+alias gp='git push'
+alias gl='git pull'
+function gg() {
+  git commit -v -a -m "$*"
+}
+
+function rails_production {
+  RAILS_ENV=production bundle exec rake db:migrate
+  RAILS_ENV=production bundle exec rake db:seed
+  RAILS_ENV=production bundle exec rake assets:precompile
+  RAILS_ENV=production bundle exec rails s
+}
+
+function rails_production_cleanup {
+  rm -rf public/assets/*
+}
+
+function rails_reset_db {
+  rm db/development.sqlite3
+  bundle exec rake db:migrate
+  bundle exec rake db:seed
+}
+
+function chrome {
+  open $@ --args --allow-file-access-from-files
+}
+
+
+function update_bin {
+  pushd .
+  cd ~/bin
+  git pull
+  cd dotfiles
+  git pull
+  cd ../RailsTemplates
+  git pull
+  popd
+}
+
+
+function save_bin {
+  pushd .
+  cd ~/bin
+  git add .
+  git commit -m "$1"
+  git push
+  cd dotfiles
+  git add .
+  git commit -m "$1"
+  git push
+  cd ../RailsTemplates
+  git commit -m "$1"
+  git push
+  popd
+}
+
+
+function launch_cmd {
+  osascript <<END
+activate application "Terminal"
+tell application "System Events"
+    keystroke "t" using {command down}
+end tell
+tell application "Terminal"
+    repeat with win in windows
+        try
+            if get frontmost of win is true then
+                do script "cd \"`pwd`\";$1;exit" in (selected tab of win)
+            end if
+        end try
+    end repeat
+end tell
+END
+}
+
+function nrs {
+  pushd . > /dev/null
+  cd ~/bin > /dev/null
+  newrubyscript $1
+  edit $1
+  popd > /dev/null
+}
+
+function mountAndroid {
+  hdiutil attach ~/Development/android-source/android.dmg.sparseimage -mountpoint /Volumes/android
+}

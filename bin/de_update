@@ -1,0 +1,4 @@
+brew update
+brew upgrade
+gem update --system
+gem update

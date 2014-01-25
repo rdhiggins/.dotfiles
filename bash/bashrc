@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DOT=$HOME/.dotfiles
+
+source ~/bin/git-prompt.sh
+
+if [ -f /opt/local/etc/bash_completion ]; then
+	. /opt/local/etc/bash_completion
+fi
+
+PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:~/bin; export PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+source $DOT/cfg/env
+source $DOT/cfg/aliases
+
+#set the number of open files to be 1024
+ulimit -S -n 1024
