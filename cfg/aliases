@@ -128,11 +128,7 @@ function chrome {
 
 function update_bin {
   pushd .
-  cd ~/bin
-  git pull
-  cd dotfiles
-  git pull
-  cd ../RailsTemplates
+  cd $DOT
   git pull
   popd
 }
@@ -140,15 +136,8 @@ function update_bin {
 
 function save_bin {
   pushd .
-  cd ~/bin
+  cd $DOT
   git add .
-  git commit -m "$1"
-  git push
-  cd dotfiles
-  git add .
-  git commit -m "$1"
-  git push
-  cd ../RailsTemplates
   git commit -m "$1"
   git push
   popd
