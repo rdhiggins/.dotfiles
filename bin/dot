@@ -1,5 +1,6 @@
 #!/usr/local/bin/zsh
 
+pushd
 
 #
 # Update dotfiles
@@ -21,3 +22,4 @@ gem update
 gem cleanup
 
 
+popd
