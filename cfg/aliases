@@ -132,7 +132,6 @@ function update_bin {
   popd
 }
 
-
 function save_bin {
   pushd .
   cd $DOT
@@ -142,24 +141,6 @@ function save_bin {
   popd
 }
 
-
-function launch_cmd {
-  osascript <<END
-activate application "Terminal"
-tell application "System Events"
-    keystroke "t" using {command down}
-end tell
-tell application "Terminal"
-    repeat with win in windows
-        try
-            if get frontmost of win is true then
-                do script "cd \"`pwd`\";$1;exit" in (selected tab of win)
-            end if
-        end try
-    end repeat
-end tell
-END
-}
 
 function nrs {
   pushd . > /dev/null
