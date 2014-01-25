@@ -41,11 +41,8 @@ alias glyph='open ~/Workspace/html/glyphicons_pro/glyphicons/web/html_css/index.
 alias ql='qlmanage -p $@'
 
 # Frequent Directories
-alias ss='cd ~/rails.Workspace/spazsoft'
-alias sc='cd ~/tmp'
+alias ss='cd ~/Workspace/rails/spazsoft4'
 alias flsc='rm -rf ~/tmp/*'
-alias bin='cd ~/bin'
-alias dotfiles='cd ~/bin/dotfiles'
 
 # Edit and reload bash configurations
 alias reload='source ~/.zshrc'
@@ -139,7 +136,7 @@ function update_bin {
 function save_bin {
   pushd .
   cd $DOT
-  git add .
+  git add -A .
   git commit -m "$1"
   git push
   popd

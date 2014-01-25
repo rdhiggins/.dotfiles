@@ -2,6 +2,7 @@
 
 DOT=$HOME/.dotfiles
 
+source $DOT/bash/prompt.sh
 source ~/bin/git-prompt.sh
 
 if [ -f /opt/local/etc/bash_completion ]; then

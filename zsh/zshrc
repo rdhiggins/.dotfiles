@@ -54,6 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+source $DOT/zsh/prompt.sh
+
 # Local file for keys and stuff
 if [[ -a ~/.localrc ]]
 then
@@ -70,7 +72,6 @@ zstyle ':completion:*' format %d
 source ~/bin/git-prompt.sh
 
 PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:~/bin; export PATH
-export EDITOR=subl
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
