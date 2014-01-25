@@ -125,23 +125,6 @@ function chrome {
 }
 
 
-function update_bin {
-  pushd .
-  cd $DOT
-  git pull
-  popd
-}
-
-function save_bin {
-  pushd .
-  cd $DOT
-  git add -A .
-  git commit -m "$1"
-  git push
-  popd
-}
-
-
 function nrs {
   pushd . > /dev/null
   cd ~/bin > /dev/null
