@@ -6,11 +6,11 @@ function link_file () {
 	if [ -s $2 ]
 	then
 		rm $2
-		ln -s $1 $2 
-		echo "Linked $1 to $2"
 	else
-		echo "$2 is not linked"
+		echo "$2 does not exist"
 	fi
+	ln -s $1 $2 
+	echo "Linked $1 to $2"
 
 }
 
