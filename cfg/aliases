@@ -20,6 +20,11 @@ alias to.w='cd ~/Workspace'
 alias to.rails='cd ~/Workspace/rails'
 alias to.ios='cd ~/Workspace/ios'
 
+# dump JSON with Curl alias jcurl="curl $1 "
+function jc () {
+  curl ${1} | ruby -r json -e 'jj JSON.parse gets'
+}
+
 # Rails
 # alias rv='ruby -v'
 # alias rg='bundle exec rails g'
