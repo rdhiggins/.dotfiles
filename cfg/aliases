@@ -35,6 +35,8 @@ function jc () {
 alias rgrd='vsplit_tab "bundle exec guard"'
 alias rser='vsplit_tab rs'
 alias rpry='pry -r ./config/environment'
+alias roa='split_tab "bundle exec guard" && rser'
+alias ora='chrome http://localhost:3000'
 
 alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
 alias ssh-syn='ssh-add ~/.ssh/id_synology'
@@ -76,11 +78,13 @@ function nr {
   rails new ${1} --skip-test-unit -m ~/.dotfiles/rails/app_template.rb
 }
 
-function ff {
+alias ff='noglob file_find'
+alias ff.h='noglob file_find.h'
+function file_find {
   find . -iname ${1} -print
 }
 
-function ff.h {
+function file_find.h {
   find ~ -iname ${1} -print
 }
 
