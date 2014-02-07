@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+title = "this is an example title"
+lowercase_words = %w{a an the and but or for nor of}
+puts title.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
