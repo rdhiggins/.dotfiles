@@ -103,14 +103,6 @@ function mf {
 }
 
 
-# Git Aliases
-alias gs='git status'
-alias ga='git add .'
-alias gp='git push'
-alias gl='git pull'
-function gg() {
-  git commit -v -a -m "$*"
-}
 
 function rails_production {
   RAILS_ENV=production bundle exec rake db:migrate
