@@ -1,5 +1,18 @@
 #!/usr/bin/env ruby
+require 'titleize'
 
-title = "this is an example title"
-lowercase_words = %w{a an the and but or for nor of}
-puts title.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
+
+if ARGV.length > 0
+	title = ARGV.join(' ')
+else
+	title = gets
+end
+
+def title_capitalize(title)
+	# lowercase_words = %w{a an the and but or for nor of}
+	lowercase_words = %w{a an and as at but by en for if in of on or the to v v. via vs vs.}
+	puts title.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
+end
+
+
+puts title_capitalize(title)
