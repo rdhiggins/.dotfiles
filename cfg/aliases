@@ -14,9 +14,8 @@ alias to.rails='cd ~/Workspace/rails'
 alias to.ruby='cd ~/Workspace/ruby'
 alias to.ios='cd ~/Workspace/ios'
 
-# dump JSON with Curl alias jcurl="curl $1 "
 function jc () {
-  curl ${1} | ruby -r json -e 'jj JSON.parse gets'
+  curl -s ${1} | ruby -r json -e 'jj JSON.parse gets'
 }
 
 alias rgrd='vsplit_tab "bundle exec guard"'
@@ -41,11 +40,6 @@ alias flsc='rm -rf ~/tmp/*'
 # Edit and reload shell configurations
 alias reload='source ~/.zshrc'
 alias edot='st ~/.dotfiles'
-
-function gc() {
-  git add -A .
-  git commit
-}
 
 function popcommands {
   history |
