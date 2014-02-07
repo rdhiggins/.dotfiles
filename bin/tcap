@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'titleize'
 
 # Check to see if the title was passed in on the command line.
 # If not, then get the line from the console
