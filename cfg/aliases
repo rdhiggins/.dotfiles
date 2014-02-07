@@ -1,13 +1,6 @@
 #!/bin/bash
 
 alias hdu='du -h . | grep "^[0-9\.]\+G"'
-alias edt='st -w'
-alias edit='st'
-alias editp='st ../${PWD##*/}'
-alias edot='st ~/.dotfiles'
-
-alias pud='pushd .'
-alias pod='popd'
 
 alias dir="ls -laGh"
 alias tu='top -o cpu'       # cpu
@@ -18,20 +11,13 @@ alias ccache='dscacheutil -flushcache'
 alias to.stc='cd ~/ios.workspace/StackCalc'
 alias to.w='cd ~/Workspace'
 alias to.rails='cd ~/Workspace/rails'
+alias to.ruby='cd ~/Workspace/ruby'
 alias to.ios='cd ~/Workspace/ios'
 
-# dump JSON with Curl alias jcurl="curl $1 "
 function jc () {
-  curl ${1} | ruby -r json -e 'jj JSON.parse gets'
+  curl -s ${1} | ruby -r json -e 'jj JSON.parse gets'
 }
 
-# Rails
-# alias rv='ruby -v'
-# alias rg='bundle exec rails g'
-# alias rs='bundle exec rails s'
-# alias rc='bundle exec rails c'
-# alias rt='bundle exec rake spec'
-# alias rdb='bundle exec rake db:migrate && rake db:seed'
 alias rgrd='vsplit_tab "bundle exec guard"'
 alias rser='vsplit_tab rs'
 alias rpry='pry -r ./config/environment'
@@ -51,14 +37,12 @@ alias ql='qlmanage -p $@'
 alias ss='cd ~/Workspace/rails/spazsoft4'
 alias flsc='rm -rf ~/tmp/*'
 
-# Edit and reload bash configurations
+# Edit and reload shell configurations
 alias reload='source ~/.zshrc'
-alias ea='st -w $DOT/cfg/aliases && reload'
-alias ee='st -w $DOT/cfg/env && reload'
+alias edot='st ~/.dotfiles'
 
-function gc() {
-  git add -A .
-  git commit
+function tcap {
+  echo "$*" | ruby -r titleize -e 'puts gets.titleize'  
 }
 
 function popcommands {
@@ -74,20 +58,19 @@ function new_rails {
   rails g controller Welcome index
 }
 
+# Create a new rails application using the app_template
 function nr {
   rails new ${1} --skip-test-unit -m ~/.dotfiles/rails/app_template.rb
 }
 
-alias ff='noglob file_find'
-alias ff.h='noglob file_find.h'
-function file_find {
-  find . -iname ${1} -print
-}
+# File & Directory finding aliases
+alias ff='noglob find . -type f -name '
+alias ff.h='noglob find ~ -type f -name '
+alias fd='noglob find . -type d -name '
+alias fd.h='noglob find ~ -type f -name '
 
-function file_find.h {
-  find ~ -iname ${1} -print
-}
-
+# Command that makes a directory and optionally change into it
+# once it has been created
 function md {
   # mkdir -p $1
   # cd $1
@@ -97,33 +80,36 @@ function md {
   esac
 }
 
+# Command that creates a file and launches the editor on it
 function mf {
   touch $1
   edit $1
 }
 
-
-
+# Commands used to testing a rails application in production mode
 function rails_production {
   RAILS_ENV=production bundle exec rake db:migrate
   RAILS_ENV=production bundle exec rake db:seed
   RAILS_ENV=production bundle exec rake assets:precompile
   RAILS_ENV=production bundle exec rails s
 }
-
 function rails_production_cleanup {
   rm -rf public/assets/*
 }
 
+# Command used to reset rails database
 function rails_reset_db {
   rm db/development.sqlite3
   bundle exec rake db:migrate
   bundle exec rake db:seed
 }
 
+# Open a local file
 function chrome {
   open $@ --args --allow-file-access-from-files
 }
+alias chrome.ss='chrome http://www.spazstik-software.com'
+alias chrome.lss='chrome http://spazsoft.dev'
 
 
 function nrs {
