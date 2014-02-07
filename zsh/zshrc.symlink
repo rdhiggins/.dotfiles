@@ -48,12 +48,16 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew osx rails rake node npm python sublime bundler rvm ruby)
+plugins=(git brew osx rails rake node npm python sublime bundler rvm ruby encode64 xcode)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+DISABLE_UPDATE_PROMPT=true
+
+# Prompt configuration
+source ~/bin/git-prompt.sh
 source $DOT/zsh/prompt.sh
 
 # Local file for keys and stuff
@@ -68,8 +72,6 @@ fi
 autoload -U compinit
 compinit
 zstyle ':completion:*' format %d
-
-source ~/bin/git-prompt.sh
 
 PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:~/bin; export PATH
 
