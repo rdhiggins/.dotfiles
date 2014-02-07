@@ -25,13 +25,6 @@ function jc () {
   curl ${1} | ruby -r json -e 'jj JSON.parse gets'
 }
 
-# Rails
-# alias rv='ruby -v'
-# alias rg='bundle exec rails g'
-# alias rs='bundle exec rails s'
-# alias rc='bundle exec rails c'
-# alias rt='bundle exec rake spec'
-# alias rdb='bundle exec rake db:migrate && rake db:seed'
 alias rgrd='vsplit_tab "bundle exec guard"'
 alias rser='vsplit_tab rs'
 alias rpry='pry -r ./config/environment'
