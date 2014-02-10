@@ -1,16 +1,23 @@
 #!/usr/bin/env ruby
 require 'active_support/inflector'
+require 'awesome_print'
 
 # Check to see if the list of words are passed in throught the command line.
 # Else get them by reading a line from the console
 if ARGV.length > 0
 	words = ARGV.clone
 else
-	word_list = gets
-	words = word_list.split
+	words = []
+	STDIN.read.split("\n").each do |l|
+		l.split(' ').each do |w|
+			words << w
+		end
+	end
 end
 
 # Pluralize each word and output it
 words.each do |w|
-	puts w.pluralize
+	puts "#{w.pluralize}"
 end
+
+__END__

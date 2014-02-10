@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
 path = ARGV[0]
 fail "Specify filename to create" unless path

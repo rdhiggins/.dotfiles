@@ -5,7 +5,10 @@
 if ARGV.length > 0
 	title = ARGV.join(' ')
 else
-	title = gets
+	title = []
+	STDIN.read.split("\n").each do |a|
+  	title << a
+	end
 end
 
 # This method capitalizes the phrase passed in
@@ -16,4 +19,12 @@ def title_capitalize(title)
 end
 
 # Output the result
-puts title_capitalize(title)
+if title.kind_of? Array
+	title.each do |t|
+		title_capitalize(t)
+	end
+else
+	puts title_capitalize(title)
+end
+
+__END__
