@@ -20,7 +20,7 @@ function jc () {
 
 alias rgrd='vsplit_tab "bundle exec guard"'
 alias rser='vsplit_tab rs'
-alias rpry='pry -r ./config/environment'
+alias rpry='pry -r ./config/environment -r rails/console/app -r rails/console/helpers'
 alias roa='split_tab "bundle exec guard" && rser'
 alias ora='chrome http://localhost:3000'
 
