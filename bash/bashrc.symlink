@@ -18,3 +18,4 @@ source $DOT/cfg/aliases
 ulimit -S -n 1024
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
