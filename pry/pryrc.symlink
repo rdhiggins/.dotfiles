@@ -1,3 +1,9 @@
+
+require 'awesome_print'
+AwesomePrint.pry!
+
+Pry.config.editor = proc { |file, line| %("subl" "#{file}":#{line}) }
+
 if defined?(PryDebugger)
   Pry.commands.alias_command 'c', 'continue'
   Pry.commands.alias_command 's', 'step'
