@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+# This script creates the pow configurations for linking
+# the current directory as the spazsoft web site.
+
+
+# List of the sites that need to be created
+sites = [
+	'rodgerhiggins',
+	'www.rodgerhiggins',
+	'spazsoft',
+	'www.spazsoft',
+	'spazstik',
+	'www.spazstik',
+	'stackcalc',
+	'www.stackcalc',
+	'spazstik-software',
+	'www.spazstik-software'
+]
+
+# Create link for each site
+sites.each do |sn|
+	FileUtils::ln_s(Dir.pwd, "#{ENV['HOME']}/.pow/#{sn}", :force => true, :verbose => true)
+end
+
