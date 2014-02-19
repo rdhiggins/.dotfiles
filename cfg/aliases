@@ -24,7 +24,10 @@ alias rser='vsplit_tab rs'
 alias rpry='pry -r ./config/environment -r rails/console/app -r rails/console/helpers'
 alias roa='split_tab "bundle exec guard" && rser'
 alias ora='chrome http://localhost:3000'
+
+# POW Aliases
 alias restart_pow='touch tmp/restart.txt'
+alias pow.cfg='curl -H "Host: pow" -s http://localhost/config.json | json'
 
 alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
 alias ssh-syn='ssh-add ~/.ssh/id_synology'
