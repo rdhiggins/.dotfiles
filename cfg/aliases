@@ -28,6 +28,8 @@ alias ora='chrome http://localhost:3000'
 # POW Aliases
 alias restart_pow='touch tmp/restart.txt'
 alias pow.cfg='curl -H "Host: pow" -s http://localhost/config.json | json'
+alias pow.status='curl -H "Host: pow" -s http://localhost/status.json | json'
+alias pow.env='curl -H "Host: pow" -s http://localhost/env.json | json'
 
 alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
 alias ssh-syn='ssh-add ~/.ssh/id_synology'

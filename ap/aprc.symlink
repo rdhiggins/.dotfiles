@@ -1,0 +1,4 @@
+
+AwesomePrint.defaults = {
+  :raw => true
+}
