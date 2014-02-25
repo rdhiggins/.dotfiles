@@ -3,28 +3,28 @@
 # Check to see if the title was passed in on the command line.
 # If not, then get the line from the console
 if ARGV.length > 0
-	title = ARGV.join(' ')
+  title = ARGV.join(' ')
 else
-	title = []
-	STDIN.read.split("\n").each do |a|
-  	title << a
-	end
+  title = []
+  STDIN.read.split("\n").each do |a|
+    title << a
+  end
 end
 
 # This method capitalizes the phrase passed in
 def title_capitalize(title)
-	# lowercase_words = %w{a an the and but or for nor of}
-	lowercase_words = %w{a an and as at but by en for if in of on or the to v v. via vs vs.}
-	puts title.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
+  # lowercase_words = %w{a an the and but or for nor of}
+  lowercase_words = %w{a an and as at but by en for if in of on or the to v v. via vs vs.}
+  puts title.split.each_with_index.map{|x, index| lowercase_words.include?(x) && index > 0 ? x : x.capitalize }.join(" ")
 end
 
 # Output the result
 if title.kind_of? Array
-	title.each do |t|
-		title_capitalize(t)
-	end
+  title.each do |t|
+    title_capitalize(t)
+  end
 else
-	puts title_capitalize(title)
+  puts title_capitalize(title)
 end
 
 __END__
