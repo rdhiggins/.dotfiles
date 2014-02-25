@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'fileutils'
+
+if ARGV.count == 1
+  target = ARGV[0]
+  puts "Stripping files starting with: #{target}"
+  files = Dir.glob("#{target}*")
+  files.each do |f|
+    File.rename(f, f.gsub(Regexp.new("^#{target}"),''))
+  end
+  puts files
+else
+  puts "Use:"
+  puts "fn_strip string"
+end
