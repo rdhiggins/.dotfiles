@@ -13,10 +13,19 @@ alias to.w='cd ~/Workspace'
 alias to.rails='cd ~/Workspace/rails'
 alias to.ruby='cd ~/Workspace/ruby'
 alias to.ios='cd ~/Workspace/ios'
-alias to.dot='~/.dotfiles'
+alias to.dot='cd ~/.dotfiles'
+alias to.rt='cd ~/Movies/Developer/RubyTapas'
 
 function jc () {
   curl -s ${1} | json
+}
+
+function archive.rt {
+  to.rt
+  mv ~/Downloads/*.mp4 .
+  ga .
+  gc -m "Todays episode"
+  gp
 }
 
 alias rgrd='vsplit_tab "bundle exec guard"'
