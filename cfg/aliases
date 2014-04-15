@@ -15,6 +15,7 @@ alias to.ruby='cd ~/Workspace/ruby'
 alias to.ios='cd ~/Workspace/ios'
 alias to.dot='cd ~/.dotfiles'
 alias to.rt='cd ~/Movies/Developer/RubyTapas'
+alias to.python='cd ~/Workspace/python'
 
 function jc () {
   curl -s ${1} | json
