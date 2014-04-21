@@ -22,11 +22,12 @@ function jc () {
 }
 
 function archive.rt {
-  to.rt
+  pushd ~/Movies/Developer/RubyTapas
   mv ~/Downloads/*.mp4 .
   ga .
   gc -m "Todays episode"
   gp
+  popd
 }
 
 alias rgrd='vsplit_tab "bundle exec guard"'
