@@ -17,6 +17,8 @@ alias to.dot='cd ~/.dotfiles'
 alias to.rt='cd ~/Movies/Developer/RubyTapas'
 alias to.python='cd ~/Workspace/python'
 
+alias ws.p='python -m SimpleHTTPServer'
+
 function jc () {
   curl -s ${1} | json
 }
