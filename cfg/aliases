@@ -19,6 +19,9 @@ alias to.python='cd ~/Workspace/python'
 
 alias ws.p='python -m SimpleHTTPServer'
 
+# Android
+alias adb='~/Development/android-sdk-macosx/platform-tools/adb'
+
 function jc () {
   curl -s ${1} | json
 }
