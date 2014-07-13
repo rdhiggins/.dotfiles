@@ -19,6 +19,8 @@ alias to.python='cd ~/Workspace/python'
 
 alias ws.p='python -m SimpleHTTPServer'
 
+alias find.git='find . -name .git -type d -prune'
+
 function jc () {
   curl -s ${1} | json
 }
