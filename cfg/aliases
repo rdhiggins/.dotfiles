@@ -22,6 +22,8 @@ alias ws.p='python -m SimpleHTTPServer'
 # Android
 alias adb='~/Development/android-sdk-macosx/platform-tools/adb'
 
+alias find.git='find . -name .git -type d -prune'
+
 function jc () {
   curl -s ${1} | json
 }
