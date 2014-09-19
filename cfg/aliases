@@ -25,6 +25,8 @@ alias adb='~/Development/android-sdk-macosx/platform-tools/adb'
 
 alias find.git='find . -name .git -type d -prune'
 
+alias pd='sips -g pixelWidth -g pixelHeight'
+
 function jc () {
   curl -s ${1} | json
 }
