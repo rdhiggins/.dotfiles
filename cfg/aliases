@@ -8,7 +8,8 @@ alias tm='top -o vsize'     # Memory
 
 alias ccache='dscacheutil -flushcache'
 
-alias to.stc='cd ~/ios.workspace/StackCalc'
+alias to.stc='cd ~/Workspace/ios/SpazSoft/StackCalc'
+alias to.spzt='cd ~/Workspace/ios/SpazSoft/SPZTracker'
 alias to.w='cd ~/Workspace'
 alias to.rails='cd ~/Workspace/rails'
 alias to.ruby='cd ~/Workspace/ruby'
@@ -16,6 +17,8 @@ alias to.ios='cd ~/Workspace/ios'
 alias to.dot='cd ~/.dotfiles'
 alias to.rt='cd ~/Movies/Developer/RubyTapas'
 alias to.python='cd ~/Workspace/python'
+alias to.down='cd ~/Downloads'
+alias to.doc='cd ~/Documents'
 
 alias ws.p='python -m SimpleHTTPServer'
 
