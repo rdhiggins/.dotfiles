@@ -20,6 +20,7 @@ alias to.rt='cd ~/Movies/Developer/RubyTapas'
 alias to.python='cd ~/Workspace/python'
 alias to.down='cd ~/Downloads'
 alias to.doc='cd ~/Documents'
+alias to.swift='cd ~/Workspace/swift'
 
 alias ws.p='python -m SimpleHTTPServer'
 
@@ -29,6 +30,11 @@ alias adb='~/Development/android-sdk-macosx/platform-tools/adb'
 alias find.git='find . -name .git -type d -prune'
 
 alias pd='sips -g pixelWidth -g pixelHeight'
+
+function xc_clean {
+  rm -rf ~/Library/Caches/com.apple.dt.Xcode/
+  rm -rf ~/Library/Developer/Xcode/DerivedData/
+}
 
 function jc () {
   curl -s ${1} | json
@@ -48,6 +54,9 @@ alias rser='vsplit_tab rs'
 alias rpry='pry -r ./config/environment -r rails/console/app -r rails/console/helpers'
 alias roa='split_tab "bundle exec guard" && rser'
 alias ora='chrome http://localhost:3000'
+
+# Dump Developer Certificates
+alias dump.ident='security find-identity -v -p codesigning'
 
 # POW Aliases
 alias restart_pow='touch tmp/restart.txt'
