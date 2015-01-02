@@ -135,9 +135,8 @@ function rails_production_cleanup {
 
 # Command used to reset rails database
 function rails_reset_db {
-  rm db/development.sqlite3
-  bundle exec rake db:migrate
-  bundle exec rake db:seed
+  rm db/development.sqlite3 db/test.sqlite3
+  bundle exec rake db:setup
 }
 
 # Open a local file
