@@ -21,6 +21,8 @@ alias to.python='cd ~/Workspace/python'
 alias to.down='cd ~/Downloads'
 alias to.doc='cd ~/Documents'
 alias to.swift='cd ~/Workspace/swift'
+alias to.web='cd ~/Workspace/web'
+alias to.mac='cd ~/Workspace/mac'
 
 alias ws.p='python -m SimpleHTTPServer'
 
@@ -124,8 +126,8 @@ function mf {
 
 # Commands used to testing a rails application in production mode
 function rails_production {
-  RAILS_ENV=production bundle exec rake db:migrate
-  RAILS_ENV=production bundle exec rake db:seed
+  # RAILS_ENV=production bundle exec rake db:migrate
+  # RAILS_ENV=production bundle exec rake db:seed
   RAILS_ENV=production bundle exec rake assets:precompile
   RAILS_ENV=production bundle exec rails s
 }
