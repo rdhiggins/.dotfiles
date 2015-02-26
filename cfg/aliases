@@ -26,6 +26,8 @@ alias to.mac='cd ~/Workspace/mac'
 
 alias ws.p='python -m SimpleHTTPServer'
 
+alias isotime='ruby -r time -e "puts Time.now.utc.iso8601"'
+
 # Android
 alias adb='~/Development/android-sdk-macosx/platform-tools/adb'
 
