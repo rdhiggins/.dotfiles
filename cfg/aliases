@@ -63,7 +63,8 @@ alias ora='chrome http://localhost:3000'
 alias dump.ident='security find-identity -v -p codesigning'
 
 # POW Aliases
-alias restart_pow='touch tmp/restart.txt'
+alias restart_pow='touch ~/.pow/restart.txt'
+alias restart_app='touch tmp/restart.txt'
 alias pow.cfg='curl -H "Host: pow" -s http://localhost/config.json | json'
 alias pow.status='curl -H "Host: pow" -s http://localhost/status.json | json'
 alias pow.env='curl -H "Host: pow" -s http://localhost/env.json | json'
@@ -161,4 +162,14 @@ function nrs {
 
 function mountAndroid {
   hdiutil attach ~/Development/android-source/android.dmg.sparseimage -mountpoint /Volumes/android
+}
+
+function code () {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+        open -a "Visual Studio Code" --args "$F"
+    fi
 }
