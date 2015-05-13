@@ -2,7 +2,7 @@
 CMD='ps axo pid,ppid,user,command'
 if [ $1 ]
 then
-  $CMD | grep "$1" | grep -v "grep $1" | grep -v "bin/psc"
+  $CMD | grep "$1" | grep -v "grep $1" | grep -v "bin/psc" | less -SEX
 else
   $CMD
 fi
