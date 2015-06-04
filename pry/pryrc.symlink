@@ -2,7 +2,7 @@
 require 'awesome_print'
 AwesomePrint.pry!
 
-Pry.config.editor = proc { |file, line| %("subl" "#{file}":#{line}) }
+Pry.config.editor = proc { |file, line| %("sublime" "#{file}":#{line}) }
 
 #if defined?(PryDebugger)
 #  Pry.commands.alias_command 'c', 'continue'
