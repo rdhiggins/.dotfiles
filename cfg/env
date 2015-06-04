@@ -4,12 +4,13 @@
 #
 # git-prompt.sh stuff
 # 
-GIT_PS1_SHOWDIRTYSTATE="Yes"
-GIT_PS1_SHOWSTASHSTATE="Yes"
-GIT_PS1_SHOWUNTRACKEDFILES="Yes"
-GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWDIRTYSTATE="Yes"
+export GIT_PS1_SHOWSTASHSTATE="Yes"
+export GIT_PS1_SHOWUNTRACKEDFILES="Yes"
+export GIT_PS1_SHOWUPSTREAM="auto"
 
-EDITOR="subl -w"
+export EDITOR="sublime -w"
+export BUNDLER_EDITOR="sublime"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
