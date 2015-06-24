@@ -9,7 +9,8 @@ if [ -f /opt/local/etc/bash_completion ]; then
 	. /opt/local/etc/bash_completion
 fi
 
-PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:~/bin; export PATH
+echo $PATH
+#PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools; export PATH
 
 source $DOT/cfg/env
 source $DOT/cfg/aliases
@@ -17,5 +18,7 @@ source $DOT/cfg/aliases
 #set the number of open files to be 1024
 ulimit -S -n 1024
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/bind
+#export PATH
 

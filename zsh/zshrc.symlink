@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -73,7 +73,10 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' format %d
 
-PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:~/bin; export PATH
+PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin
+PATH=$PATH:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH
 
 source $DOT/cfg/env
 source $DOT/cfg/aliases
@@ -82,7 +85,6 @@ source $DOT/cfg/aliases
 #set the number of open files to be 1024
 ulimit -S -n 1024
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Python
 export PIP_REQUIRE_VIRTUALENV=true
