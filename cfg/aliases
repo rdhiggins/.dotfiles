@@ -23,6 +23,7 @@ alias to.doc='cd ~/Documents'
 alias to.swift='cd ~/Workspace/swift'
 alias to.web='cd ~/Workspace/web'
 alias to.mac='cd ~/Workspace/mac'
+alias to.android='cd ~/Workspace/android'
 
 alias ws.p='python -m SimpleHTTPServer'
 
