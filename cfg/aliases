@@ -24,6 +24,7 @@ alias to.swift='cd ~/Workspace/swift'
 alias to.web='cd ~/Workspace/web'
 alias to.mac='cd ~/Workspace/mac'
 alias to.android='cd ~/Workspace/android'
+alias to.md='cd ~/Library/Mobile\ Documents'
 
 alias ws.p='python -m SimpleHTTPServer'
 

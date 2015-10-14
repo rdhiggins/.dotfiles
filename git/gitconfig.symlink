@@ -5,6 +5,7 @@
 	ui = auto
 [core]
 	editor = sublime -w
+	autocrlf = input
 [credential]
 	helper = osxkeychain
 [push]
