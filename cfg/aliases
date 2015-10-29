@@ -63,8 +63,8 @@ alias ora='chrome http://localhost:3000'
 alias dump.ident='security find-identity -v -p codesigning'
 
 # POW Aliases
-alias restart_pow='touch ~/.pow/restart.txt'
-alias restart_app='touch tmp/restart.txt'
+alias pow.restart='touch ~/.pow/restart.txt'
+alias pow.restart_app='touch tmp/restart.txt'
 alias pow.cfg='curl -H "Host: pow" -s http://localhost/config.json | json'
 alias pow.status='curl -H "Host: pow" -s http://localhost/status.json | json'
 alias pow.env='curl -H "Host: pow" -s http://localhost/env.json | json'
