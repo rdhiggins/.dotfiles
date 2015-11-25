@@ -3,7 +3,7 @@
 
 #
 # git-prompt.sh stuff
-# 
+#
 export GIT_PS1_SHOWDIRTYSTATE="Yes"
 export GIT_PS1_SHOWSTASHSTATE="Yes"
 export GIT_PS1_SHOWUNTRACKEDFILES="Yes"
