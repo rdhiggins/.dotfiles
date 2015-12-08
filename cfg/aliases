@@ -30,8 +30,8 @@ alias ws.p='python -m SimpleHTTPServer'
 
 alias isotime='ruby -r time -e "puts Time.now.utc.iso8601"'
 
-# alias python='python3'
-# alias pip='pip3'
+alias python='python3'
+alias pip='pip3'
 
 # Android
 alias find.git='find . -name .git -type d -prune'
