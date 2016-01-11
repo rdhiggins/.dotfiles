@@ -1,7 +1,7 @@
-#!/bin/sh 
+#!/bin/sh
 
 if [ -z "$1" ]; then
-  echo “usage: $0  [ Preferences |  ]”
+  echo “usage: $0  [ Preferences \|  ]”
 else
   base=~/Library/Application\ Support/iPhone\ Simulator/
   apps=Applications
