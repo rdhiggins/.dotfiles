@@ -4,7 +4,7 @@ pushd
 
 #
 # Update dotfiles
-# 
+#
 echo "Updating dotfiles"
 cd ~/.dotfiles
 git pull
@@ -17,20 +17,6 @@ echo "Updating Homebrew"
 brew update
 brew upgrade
 brew cleanup
-
-#
-# Update rvm
-#
-echo "Updating RVM"
-rvm get stable
-
-#
-# Update Gems
-# 
-echo "Updating Gems"
-gem update --system
-gem update
-gem cleanup
 
 
 popd
