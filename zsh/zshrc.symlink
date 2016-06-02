@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-DISABLE_UPDATE_PROMPT=true
+DISABLE_UPDATE_PROMPT="true"
 
 # Prompt configuration
 source ~/bin/git-prompt.sh
