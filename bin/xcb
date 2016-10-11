@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
-filename = Dir.glob("*.xc*").first
-
-if filename
+unless (filename = Dir.glob("*.xc*").first).nil?
   puts "Opening #{filename}"
   %x(open -a /Applications/Xcode-beta.app #{filename})
 end
