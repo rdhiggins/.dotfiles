@@ -1,12 +1,8 @@
-#!/bin/zsh
+#!/usr/bin/env ruby
 
-xcode_proj=`find . -name "*.xc*" -d 1 | sort -r | head -1`
+filename = Dir.glob("*.xc*").first
 
-if [ $(echo -n $xcode_proj | wc -m) = 0 ] ;
-then
-  echo "No xcworkspace/xcodeproj file found in the current directory."
-  exit 1
-fi
-
-echo "Found $xcode_proj"
-open -a /Applications/Xcode-beta.app $xcode_proj
+if filename
+  puts "Opening #{filename}"
+  %x(open -a /Applications/Xcode-beta.app #{filename})
+end
