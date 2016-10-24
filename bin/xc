@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 
-unless (filename = Dir.glob("*.xc*").first).nil?
-  puts "Opening #{filename}"
-  %x(open -a /Applications/Xcode.app #{filename})
+if File.exists('/Applications/Xcode.app') then
+  unless (filename = Dir.glob("*.xc*").first).nil?
+    puts "Opening #{filename}"
+    %x(open -a /Applications/Xcode.app #{filename})
+  end
+else
+  puts "Xcode is not installed"
 end
