@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-
 if File.exists?('/Applications/Xcode-beta.app') then
   unless (filename = Dir.glob("*.xc*").first).nil?
     puts "Opening #{filename}"
