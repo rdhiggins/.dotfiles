@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
 if File.exists?('/Applications/Xcode-beta.app') then
-  unless (filename = Dir.glob("*.xc*").first).nil?
+  if !((filename = Dir.glob("*.xc*").first).nil?)
     puts "Opening #{filename}"
     %x(open -a /Applications/Xcode-beta.app #{filename})
+  else
+    puts "Did not find a project to open"
   end
 else
   puts "Xcode-beta is not installed"
