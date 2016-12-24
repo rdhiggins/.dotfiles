@@ -30,6 +30,8 @@ alias ws.p='python -m SimpleHTTPServer'
 
 alias isotime='ruby -r time -e "puts Time.now.utc.iso8601"'
 
+alias unlock.clock='killall SystemUIServer'
+
 # alias python='python3'
 # alias pip='pip3'
 
