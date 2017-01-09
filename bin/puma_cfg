@@ -23,6 +23,6 @@ sites = [
 
 # Create link for each site
 sites.each do |sn|
-	FileUtils::ln_s(Dir.pwd, "#{ENV['HOME']}/.pow/#{sn}", :force => true, :verbose => true)
+	FileUtils::ln_s(Dir.pwd, "#{ENV['HOME']}/.puma-dev/#{sn}", :force => true, :verbose => true)
 end
 
