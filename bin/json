@@ -1,14 +1,27 @@
 #!/usr/bin/env ruby
-require 'json'
 
-if STDIN.tty?
-  puts 'your_command | json [--no-color]'
-else
-  data = JSON.parse(STDIN.read)
-  if ARGV.include?('--no-color')
-    puts JSON.pretty_generate(data)
-  else
-    require 'ap'
-    ap data
-  end
+begin
+  require 'json'
+rescue LoadError
+  puts 'command requires json gem installed'
+  exit
+end
+
+
+begin
+  require 'awesome_print'
+rescue LoadError
+  puts 'command requires awesome_print gem installed'
+  exit
+end
+
+
+data = ''
+ARGF.each_line do |line|
+  data += line
+end
+
+if data
+  json = JSON.parse(data)
+  ap json
 end
