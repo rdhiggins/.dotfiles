@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
+require 'shellwords'
 
 if File.exists?('/Applications/Xcode-beta.app') then
   if !((filename = Dir.glob("*.xc*").first).nil?)
     puts "Opening #{filename}"
-    %x(open -a /Applications/Xcode-beta.app #{filename})
+    %x(open -a /Applications/Xcode-beta.app #{Shellwords.escape(filename)})
   else
     puts "Did not find a project to open"
   end
