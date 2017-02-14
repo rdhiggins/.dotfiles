@@ -8,7 +8,7 @@ alias tm='top -o vsize'     # Memory
 
 alias ccache='dscacheutil -flushcache'
 
-alias to.stc='cd ~/Workspace/ios/SpazSoft/StackCalc'
+alias to.stc='cd ~/Workspace/ios/SpazSoft/StackCalc.Swift'
 alias to.spzt='cd ~/Workspace/ios/SpazSoft/SPZTracker'
 alias to.w='cd ~/Workspace'
 alias to.rails='cd ~/Workspace/rails'
