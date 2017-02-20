@@ -1,10 +1,28 @@
 #!/usr/bin/env ruby
 require 'shellwords'
+require 'optparse'
 
-if File.exists?('/Applications/Xcode.app') then
-  if !((filename = Dir.glob("*.xc*").first).nil?)
-    puts "Opening #{filename}"
-    %x(open -a /Applications/Xcode.app #{Shellwords.escape(filename)})
+extension = '.xcodeproj'
+xcode = 'Xcode.app'
+
+opt_parser = OptionParser.new do |opt|
+  opt.banner = "Usage: xc [OPTIONS]  Opens first xcode project it finds"
+  opt.separator  ""
+  opt.separator  "Options"
+
+  opt.on("-b","--beta", "starts xcode-beta") do
+    xcode = 'Xcode-beta.app'
+  end
+end
+
+opt_parser.parse!
+
+
+if File.exists?("/Applications/#{xcode}") then
+  if !((filename = Dir.glob("*#{extension}").first).nil?)
+    puts "Opening #{File.basename(filename, extension)}"
+
+    %x(open -a /Applications/#{xcode} #{Shellwords.escape(filename)})
   else
     puts "Did not find a project to open"
   end
