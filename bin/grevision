@@ -1,6 +1,11 @@
 #!/bin/sh
 
-branch_name=`git symbolic-ref HEAD | sed -e 's,.*/\\(.*\\),\\1,'`
-git_count=`git rev-list $branch_name |wc -l | sed 's/^ *//;s/ *$//'`
+#  update_build_number.sh
+#  Usage: `update_build_number.sh [branch]`
+#  Run this script after the 'Copy Bundle Resources' build phase
+#  Ref: http://tgoode.com/2014/06/05/sensible-way-increment-bundle-version-cfbundleversion-xcode/
 
-echo $git_count
+branch=`git rev-parse --abbrev-ref HEAD`
+buildNumber=$(expr $(git rev-list $branch --count) - $(git rev-list HEAD..$branch --count))
+
+echo "Build number = $buildNumber using branch '$branch'."
