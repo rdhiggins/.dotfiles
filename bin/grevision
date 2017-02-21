@@ -1,0 +1,6 @@
+#!/bin/sh
+
+branch_name=`git symbolic-ref HEAD | sed -e 's,.*/\\(.*\\),\\1,'`
+git_count=`git rev-list $branch_name |wc -l | sed 's/^ *//;s/ *$//'`
+
+echo $git_count
