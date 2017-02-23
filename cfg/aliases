@@ -116,13 +116,8 @@ alias fd.h='noglob find ~ -type f -name '
 
 # Command that makes a directory and optionally change into it
 # once it has been created
-function md {
-  # mkdir -p $1
-  # cd $1
-  case $1 in
-     -c) mkdir -p "$2" && cd "$2" ;;
-     *) mkdir -p "$@" ;;
-  esac
+function mdc {
+  mkdir -p "$1" && cd "$1"
 }
 
 # Command that creates a file and launches the editor on it
