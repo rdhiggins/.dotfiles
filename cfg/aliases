@@ -25,6 +25,7 @@ alias to.web='cd ~/Workspace/web'
 alias to.mac='cd ~/Workspace/mac'
 alias to.android='cd ~/Workspace/android'
 alias to.md='cd ~/Library/Mobile\ Documents'
+alias to.play=" cd ~/Workspace/playgrounds"
 
 alias ws.p='python -m SimpleHTTPServer'
 
