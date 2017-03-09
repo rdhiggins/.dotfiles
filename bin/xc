@@ -27,7 +27,6 @@ if ARGV.count == 1 then
 else
   if File.exists?("/Applications/#{$xcode}") then
     if !((filename = Dir.glob("*#{$extension}").first).nil?)
-      p filename
       start_xcode(filename)
     else
       puts "Did not find a project to open"
