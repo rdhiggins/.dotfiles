@@ -41,6 +41,9 @@ alias find.git='find . -name .git -type d -prune'
 
 alias pd='sips -g pixelWidth -g pixelHeight'
 
+alias list.gitignore='git ls-files -ci --exclude-standard'
+alias apply.gitignore='git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached'
+
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
   rm -rf ~/Library/Developer/Xcode/DerivedData/
