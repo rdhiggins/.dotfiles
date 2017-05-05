@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	editor = sublime -w
+	editor = atom -w
 	autocrlf = input
 [credential]
 	helper = osxkeychain
