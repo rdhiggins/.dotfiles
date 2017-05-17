@@ -12,3 +12,5 @@
 	default = simple
 [github]
   user = rdhiggins
+[alias]
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
