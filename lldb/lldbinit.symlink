@@ -1,4 +1,6 @@
-# ~/.lldbinit
 
-# command alias uikit expr @import UIKit
-# command alias foundation expr @import Foundation
+
+# Aliases
+command alias reload_script command source ~/.lldbinit
+
+command script import ~/.lldb/BreakAfterRegex.py

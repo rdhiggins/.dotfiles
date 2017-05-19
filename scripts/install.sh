@@ -9,7 +9,7 @@ function link_file () {
 	else
 		echo "$2 does not exist"
 	fi
-	ln -s $1 $2 
+	ln -s $1 $2
 	echo "Linked $1 to $2"
 
 }
@@ -31,4 +31,4 @@ install_dotfiles
 
 # Bin Directory
 link_file ~/.dotfiles/bin ~/bin
-
+link_file ~/.dotfiles/lldb ~/.lldb
