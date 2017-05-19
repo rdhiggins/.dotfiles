@@ -1,6 +1,5 @@
 
 
-# Aliases
 command alias reload_script command source ~/.lldbinit
 
-command script import ~/.lldb/BreakAfterRegex.py
+command script import ~/.lldb/lldbinit.py
