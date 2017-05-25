@@ -9,9 +9,8 @@ export GIT_PS1_SHOWSTASHSTATE="Yes"
 export GIT_PS1_SHOWUNTRACKEDFILES="Yes"
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-export EDITOR="sublime -w"
+export EDITOR="atom -w"
 export BUNDLER_EDITOR="sublime"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-
