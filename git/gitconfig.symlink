@@ -5,6 +5,7 @@
 [core]
 	editor = atom -w
 	autocrlf = input
+	abbrev = 8
 [credential]
 	helper = osxkeychain
 [push]
@@ -22,3 +23,5 @@
     tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot  trustExitCode = true
+[log]
+	abbrevCommit = yes
