@@ -14,7 +14,6 @@
   user = rdhiggins
 [alias]
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-
 [diff]
     tool = Kaleidoscope
 [difftool "Kaleidoscope"]
