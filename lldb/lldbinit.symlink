@@ -6,6 +6,8 @@ command alias -H "Evaluate expression in ObjC context" -h "Eval in ObjC" -- cpo 
 command alias -H "Evaluate expression in Swift context" -h "Eval in Swift" -- spo expression -l swift -O --
 command alias -H "Print value in ObjC context in hexadecimal" -h "Print in hex" -- cpx expression
 
+command alias -H "prepare debugging overlay" -h "prepare overlay" -- dbop expression -l objc -- [UIDebuggingInformationOverlay prepareDebuggingOverlay]
+command alias -H "toggle visibility of debugging overlay" -h "toggle overlay" -- dbot expression -l objc -- [(UIDebuggingInformationOverlay *)[UIDebuggingInformationOverlay overlay] toggleVisibility]
 
 command regex rl 's/(.+)/image lookup -rn %1/'
 command regex -- tv 's/(.+)/expression -l objc -O -- @import QuartzCore; [%1 setHidden:!(BOOL)[%1 isHidden]]; (void)[CATransaction flush];/'
