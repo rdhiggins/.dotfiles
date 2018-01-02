@@ -35,4 +35,8 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-default.profraw
+
+# Swift Taylor tool files #
+###########################
+*.profraw
+taylor_report.pmd

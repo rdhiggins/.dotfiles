@@ -7,7 +7,7 @@
 	editor = atom -w
 	autocrlf = input
 	abbrev = 8
-	excludesfile = /Users/rdhiggins/.gitignore
+	excludesfile = /Users/rdhiggins/.gitignore_global
 [credential]
 	helper = osxkeychain
 [push]
