@@ -6,3 +6,9 @@
 # the following to ~/.zshrc:
 
 eval "$(rbenv init -)"
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/Users/rdhiggins/anaconda/bin:$PATH"
+
+# added by Anaconda3 4.4.0 installer
+export PATH="/Users/rdhiggins/anaconda3/bin:$PATH"
