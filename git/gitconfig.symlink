@@ -1,11 +1,13 @@
 [user]
 	name = Rodger Higgins
+	email = rdhiggins@gmail.com
 [color]
 	ui = auto
 [core]
 	editor = atom -w
 	autocrlf = input
 	abbrev = 8
+	excludesfile = /Users/rdhiggins/.gitignore
 [credential]
 	helper = osxkeychain
 [push]
