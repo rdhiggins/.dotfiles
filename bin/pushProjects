@@ -1,0 +1,6 @@
+#!/usr/local/bin/zsh
+
+foreach d ( ~/Workspace/spazsoft/apple/packages/swift-expression ~/Workspace/spazsoft/apple/packages/swift-math ~/Workspace/spazsoft/apple/packages/swift-utilities ~/Workspace/spazsoft/apple/StackCalcPro.swiftUI ~/Workspace/spazsoft/apple/StackCalcPro.uikit )
+    cd $d
+    git push
+end
