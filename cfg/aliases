@@ -27,6 +27,7 @@ alias to.spz='cd ~/Workspace/spazsoft'
 alias to.stc='cd ~/Workspace/spazsoft/apple/StackCalc.Swift'
 alias to.spzt='cd ~/Workspace/spazsoft/apple/SPZTracker'
 alias to.uml='cd ~/Workspace/spazsoft/apple/UMLNoodler'
+alias to.packages='cd ~/Workspace/spazsoft/apple/packages'
 
 alias ws.p='python -m SimpleHTTPServer'
 
