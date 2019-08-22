@@ -36,11 +36,8 @@
 ehthumbs.db
 Thumbs.db
 
-<<<<<<< Updated upstream
 # Swift Taylor tool files #
 ###########################
 *.profraw
 taylor_report.pmd
-=======
 .xcl_defaults
->>>>>>> Stashed changes
