@@ -1,13 +1,13 @@
 [user]
 	name = Rodger Higgins
-	email = rdhiggins@gmail.com
+	email = rodger.higgins@climate.com
 [color]
 	ui = auto
 [core]
 	editor = atom -w
 	autocrlf = input
 	abbrev = 8
-	excludesfile = /Users/rdhiggins/.gitignore_global
+	excludesfile = /Users/rodger.higgins/.gitignore_global
 [credential]
 	helper = osxkeychain
 [push]
@@ -18,3 +18,11 @@
 	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [log]
 	abbrevCommit = yes
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/rodger.higgins/.stCommitMsg
