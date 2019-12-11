@@ -73,7 +73,7 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' format %d
 
-PATH=/usr/local/bin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin
 PATH=$PATH:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools
 export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH
