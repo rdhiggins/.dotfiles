@@ -34,8 +34,10 @@ alias ws.p='python -m SimpleHTTPServer'
 
 alias isotime='ruby -r time -e "puts Time.now.utc.iso8601"'
 
-alias opensim='cd `appcontainer`'
-alias opensimdata='cd `datacontainer`'
+alias openapp='open -R `appcontainer`'
+alias opendata='open `datacontainer`'
+alias to.app='pushd `appcontainer`'
+alias to.data='pushd `datacontainer`'
 # alias python='python3'
 # alias pip='pip3'
 
