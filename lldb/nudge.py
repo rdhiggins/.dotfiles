@@ -1,5 +1,5 @@
 """ File: nudge.py
-    
+
 An lldb Python script to add a nudge command.
 
 Add to ~/.lldbinit:
@@ -48,7 +48,7 @@ class NudgeCommand:
 
         # Get a pointer to the view by evaluating the user-provided expression (in the language of the current frame).
         result = target.EvaluateExpression(view_expression, exprOptions)
-        
+
         if result.GetValue() is None:
             return result.GetError()
         else:
@@ -56,7 +56,7 @@ class NudgeCommand:
                 # Reset center-point offset tracking for new target view.
                 self.original_center = None
                 self.total_center_offset = (0.0, 0.0)
-            
+
             self.target_view = result
             return None     # No error
 
@@ -74,18 +74,18 @@ class NudgeCommand:
         centerValue = target.EvaluateExpression(centerExpression, exprOptions)
         center_x = float(centerValue.GetChildMemberWithName('x').GetValue())
         center_y = float(centerValue.GetChildMemberWithName('y').GetValue())
-        
+
         if self.original_center is None:
             self.original_center = (center_x, center_y)
-        
+
         # Adjust the x,y center values by adding the offsets.
         center_x += x_offset
         center_y += y_offset
-        
+
         # Set the new view.center.
         setExpression = "(void)[(UIView *)%s setCenter:(CGPoint){%f, %f}]" %(self.target_view.GetValue(), center_x, center_y)
         target.EvaluateExpression(setExpression, exprOptions)
-        
+
         # Tell CoreAnimation to flush view updates to the screen.
         target.EvaluateExpression("(void)[CATransaction flush]", exprOptions)
 
@@ -161,7 +161,7 @@ tracked across multiple calls and displayed after each nudge.
         """
         # Use the shell Lexer to properly parse command args & options just like a shell would.
         command_args = shlex.split(command)
-        
+
         try:
             # Parse the arguments into objects. Aborts with error if any arguments are incorrectly formatted (e.g. offsets are not floats).
             args = self.parser.parse_args(command_args)
@@ -201,4 +201,4 @@ def __lldb_init_module(debugger, dict):
 
     # Add the command to LLDB.
     debugger.HandleCommand('command script add -c nudge.NudgeCommand nudge')
-    print 'The "nudge" command has been installed, type "help nudge" for detailed help.'
+    print('The "nudge" command has been installed, type "help nudge" for detailed help.')
