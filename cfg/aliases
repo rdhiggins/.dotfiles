@@ -28,9 +28,7 @@ alias to.spz='cd ~/Workspace/spazsoft'
 alias to.stc='cd ~/Workspace/spazsoft/apple/StackCalc.Swift'
 alias to.spzt='cd ~/Workspace/spazsoft/apple/SPZTracker'
 alias to.uml='cd ~/Workspace/spazsoft/apple/UMLNoodler'
-alias to.packages='cd ~/Workspace/spazsoft/apple/packages'
-
-alias ws.p='python -m SimpleHTTPServer'
+alias to.pack='cd ~/Workspace/spazsoft/apple/packages'
 
 alias isotime='ruby -r time -e "puts Time.now.utc.iso8601"'
 
@@ -38,8 +36,6 @@ alias openapp='open `appcontainer`'
 alias opendata='open `datacontainer`'
 alias to.sim='pushd `appcontainer`'
 alias to.data='pushd `datacontainer`'
-# alias python='python3'
-# alias pip='pip3'
 
 # Android
 alias find.git='find . -name .git -type d -prune'
@@ -57,15 +53,6 @@ function xc_clean {
 
 function jc () {
   curl -s ${1} | json
-}
-
-function archive.rt {
-  pushd ~/Movies/Developer/RubyTapas
-  mv ~/Downloads/*.mp4 .
-  ga .
-  gc -m "Todays episode"
-  gp
-  popd
 }
 
 alias rgrd='vsplit_tab "bundle exec guard"'
