@@ -75,7 +75,7 @@ zstyle ':completion:*' format %d
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin
 PATH=$PATH:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools
-export PATH="$HOME/.fastlane/bin:$PATH"
+PATH=/Users/rdhiggins/.rbenv/shims:/Users/rdhiggins/.pyenv/shims:$PATH
 export PATH
 
 source $DOT/cfg/env
@@ -86,21 +86,4 @@ source $DOT/cfg/aliases
 ulimit -S -n 1024
 
 
-# Python
-export PIP_REQUIRE_VIRTUALENV=false
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-
-function p.a {
-  source ~/Workspace/python/virtual.envs/$1/bin/activate
-}
-
-
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-
-eval "$(rbenv init -)"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
