@@ -9,7 +9,7 @@
 	abbrev = 8
 	excludesfile = /Users/rdhiggins/.gitignore_global
 [credential]
-	helper = osxkeychain
+	helper = cache
 [push]
 	default = simple
 [github]
