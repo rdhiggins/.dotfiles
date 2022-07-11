@@ -75,8 +75,13 @@ zstyle ':completion:*' format %d
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local:/usr/local/share/npm/bin:$PATH:$HOME/bin
 PATH=$PATH:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools
-PATH=/Users/rdhiggins/.rbenv/shims:/Users/rdhiggins/.pyenv/shims:$PATH
 export PATH
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
 
 source $DOT/cfg/env
 source $DOT/cfg/aliases
@@ -85,5 +90,6 @@ source $DOT/cfg/aliases
 #set the number of open files to be 1024
 ulimit -S -n 1024
 
-
+eval "$(pyenv virtualenv-init -)"
+eval "$(rbenv init -)"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
