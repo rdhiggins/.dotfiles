@@ -48,7 +48,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew macos rails rake node npm python bundler ruby encode64 xcode)
+plugins=(git brew macos rails rake node npm python bundler ruby encode64 xcode poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,3 +96,5 @@ source $DOT/cfg/aliases
 ulimit -S -n 1024
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.poetry/bin:$PATH"
