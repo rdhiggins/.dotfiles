@@ -86,7 +86,7 @@ alias flsc='rm -rf ~/tmp/*'
 
 # Edit and reload shell configurations
 alias reload='source ~/.zshrc'
-alias edot='atom ~/.dotfiles'
+alias edot='subl -w ~/.dotfiles'
 
 function popcommands {
   history |

@@ -91,6 +91,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 source $DOT/cfg/env
 source $DOT/cfg/aliases
 
+export EDITOR='subl -w'
 
 #set the number of open files to be 1024
 ulimit -S -n 1024
