@@ -48,6 +48,8 @@ alias greset='git checkout -- .'
 
 # Homebrew
 alias buou='brew update && brew outdated && brew upgrade && brew cleanup'
+alias brew.backup='brew bundle dump --file=~/.Brewfile -f'
+alias brew.restore='brew bundle --file=~/.Brewfile'
 
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
