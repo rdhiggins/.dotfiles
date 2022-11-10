@@ -50,6 +50,11 @@ alias greset='git checkout -- .'
 alias buou='brew update && brew outdated && brew upgrade && brew cleanup'
 alias brew.backup='brew bundle dump --file=~/.Brewfile -f'
 alias brew.restore='brew bundle --file=~/.Brewfile'
+alias brew.list='cat ~/.Brewfile'
+alias brew.clean='brew bundle cleanup --file=~/.Brewfile'
+
+# Forecast
+alias fc.chi='curl wttr.in/Chicago'
 
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
@@ -68,13 +73,6 @@ alias ora='chrome http://localhost:3000'
 
 # Dump Developer Certificates
 alias dump.ident='security find-identity -v -p codesigning'
-
-# POW Aliases
-alias pow.restart='touch ~/.pow/restart.txt'
-alias pow.restart_app='touch tmp/restart.txt'
-alias pow.cfg='curl -H "Host: pow" -s http://localhost/config.json | json'
-alias pow.status='curl -H "Host: pow" -s http://localhost/status.json | json'
-alias pow.env='curl -H "Host: pow" -s http://localhost/env.json | json'
 
 alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
 alias ssh-syn='ssh-add ~/.ssh/id_synology'
