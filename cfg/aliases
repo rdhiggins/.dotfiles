@@ -46,6 +46,9 @@ alias lgi='git ls-files -ci --exclude-standard'
 alias agi='git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached'
 alias greset='git checkout -- .'
 
+# Homebrew
+alias buou='brew update && brew outdated && brew upgrade && brew cleanup'
+
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
   rm -rf ~/Library/Developer/Xcode/DerivedData/
