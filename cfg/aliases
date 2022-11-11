@@ -48,6 +48,7 @@ alias greset='git checkout -- .'
 
 # Homebrew
 alias buou='brew update && brew outdated && brew upgrade && brew cleanup'
+alias brew.install='brew tap Homebrew/bundle'
 alias brew.backup='brew bundle dump --file=~/.Brewfile -f'
 alias brew.restore='brew bundle --file=~/.Brewfile'
 alias brew.list='cat ~/.Brewfile'

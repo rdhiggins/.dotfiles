@@ -75,6 +75,7 @@ zstyle ':completion:*' format %d
 
 PATH=/usr/local/bin:/usr/local/sbin:/usr/local:$PATH:$HOME/bin
 PATH=$PATH:$HOME/Library/Android/sdk/tools:$HOME/Library/Android/sdk/platform-tools
+PATH=$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 export PATH
 
 # Install pyenv
