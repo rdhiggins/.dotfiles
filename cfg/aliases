@@ -54,8 +54,10 @@ alias brew.restore='brew bundle --file=~/.Brewfile'
 alias brew.list='cat ~/.Brewfile'
 alias brew.clean='brew bundle cleanup --file=~/.Brewfile'
 
-# Forecast
-alias fc.chi='curl wttr.in/Chicago'
+# Forecast (wttr.in)
+alias fc.chi='curl "http://wttr.in/Chicago?u"'
+alias fc.moon='curl "http://wttr.in/moon?u"'
+alias fc.help='curl "http://wttr.in/:help"'
 
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
