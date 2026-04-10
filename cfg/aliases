@@ -78,6 +78,9 @@ alias ghcp='copilot'
 alias ghcpy='copilot --yolo'
 alias ghcpr='copilot --continue'
 
+# Force dotfiles update check (bypasses 24hr cooldown)
+alias dotup='rm -f ~/.cache/dotfiles-last-check && source ~/.dotfiles/zsh/dotfiles_update_check.sh'
+
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
   rm -rf ~/Library/Developer/Xcode/DerivedData/

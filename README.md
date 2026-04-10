@@ -184,6 +184,7 @@ See `cfg/aliases` for the full list. Highlights:
 | `brew.backup` | Dump current Brewfile |
 | `brew.restore` | Install from Brewfile |
 | `reload` | Re-source `~/.zshrc` |
+| `dotup` | Force dotfiles update check (bypasses 24hr cooldown) |
 | `edot` | Open dotfiles in Sublime Text |
 | `xc_clean` | Flush Xcode caches and DerivedData |
 | `dump.ident` | List code signing identities |
