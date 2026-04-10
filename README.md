@@ -22,18 +22,6 @@ Install [Homebrew](https://brew.sh), then:
 brew bundle --file=~/.Brewfile
 ```
 
-### Key tools installed via Brew
-
-| Tool | Replaces | Purpose |
-|------|----------|---------|
-| `bat` | `cat` | Syntax-highlighted file viewer |
-| `eza` | `ls` | Modern file listing with git status |
-| `fd` | `find` | Fast file finder |
-| `fzf` | — | Fuzzy finder for files, history, etc. |
-| `git-delta` | `diff` | Side-by-side git diffs with syntax highlighting |
-| `ripgrep` | `grep`/`ack` | Extremely fast recursive search |
-| `zoxide` | `autojump`/`cd` | Smart directory jumping (`z <partial>`) |
-
 ## Structure
 
 | Directory | Purpose |
@@ -55,10 +43,116 @@ brew bundle --file=~/.Brewfile
 Primary shell is **Zsh** with [Oh My Zsh](https://ohmyz.sh/).
 Machine-specific secrets go in `~/.localrc` (not tracked).
 
-## Copilot CLI Aliases
+## Automatic Update Check
 
-| Alias | Command |
+Each time a new shell starts, the dotfiles repo is checked against origin — at
+most **once every 24 hours**. If the local repo is behind, you'll see:
+
+```
+⚡ Dotfiles are 2 commit(s) behind origin.
+   Pull latest? [y/N]
+```
+
+Press **y** to pull, or **N** to skip until the next day. The check runs a
+`git fetch` with a 5-second timeout so it won't block shell startup on slow
+connections. The last-check timestamp is stored in
+`~/.cache/dotfiles-last-check`.
+
+To update manually at any time, run `dot` — it pulls dotfiles and updates
+Homebrew.
+
+## Modern CLI Tools
+
+The Brewfile installs modern replacements for common Unix tools. These are
+wired up as shell aliases that fall back to the originals when not installed.
+
+| Tool | Replaces | Purpose |
+|------|----------|---------|
+| [`bat`](https://github.com/sharkdp/bat) | `cat` | Syntax-highlighted file viewer |
+| [`eza`](https://github.com/eza-community/eza) | `ls` | Modern file listing with git status and icons |
+| [`fd`](https://github.com/sharkdp/fd) | `find` | Fast, user-friendly file finder |
+| [`fzf`](https://github.com/junegunn/fzf) | — | Fuzzy finder for files, history (`Ctrl-R`), and more |
+| [`git-delta`](https://github.com/dandavison/delta) | `diff` | Side-by-side git diffs with syntax highlighting |
+| [`ripgrep`](https://github.com/BurntSushi/ripgrep) | `grep`/`ack` | Extremely fast recursive code search |
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | `autojump`/`cd` | Smart directory jumping — `z <partial-path>` |
+
+### Aliases provided
+
+When `eza` is installed, these aliases are active:
+
+| Alias | Expands to |
+|-------|------------|
+| `ls` | `eza` |
+| `dir` / `ll` | `eza -la --git --icons` |
+| `lt` | `eza -la --tree --level=2 --icons` |
+
+When `bat` is installed:
+
+| Alias | Expands to |
+|-------|------------|
+| `cat` | `bat --paging=never` |
+| `catp` | `bat` (with paging) |
+
+If neither tool is installed, `dir` and `cat` behave normally.
+
+## Zsh Completions
+
+Custom completions live in `zsh/completions/` and are loaded via `fpath`.
+
+### GitHub Copilot CLI
+
+Tab completions are included for the `copilot` command. Type `copilot <Tab>` to
+see subcommands (`help`, `init`, `login`, `mcp`, `plugin`, `update`, `version`)
+and `copilot --<Tab>` for all flags (`--model`, `--yolo`, `--continue`, etc.).
+
+## Git Configuration
+
+The git config (`git/gitconfig.symlink`) includes:
+
+- **Editor:** Sublime Text (`subl -w`)
+- **Pager:** [delta](https://github.com/dandavison/delta) with side-by-side diffs and line numbers
+- **Merge conflicts:** `zdiff3` style (shows base, ours, theirs)
+- **Pull strategy:** rebase (no merge commits)
+- **Push:** `autoSetupRemote` — first push automatically sets upstream
+- **Default branch:** `main`
+- **Diff/merge tool:** Kaleidoscope
+- **Credential helper:** macOS Keychain
+- **Git LFS** enabled
+
+## GitHub Copilot CLI
+
+| Alias | Command | Description |
+|-------|---------|-------------|
+| `ghcp` | `copilot` | Start interactive session |
+| `ghcpy` | `copilot --yolo` | Auto-approve all tool actions |
+| `ghcpr` | `copilot --continue` | Resume most recent session |
+
+> **Note:** Earlier versions used `cp`/`cpy`/`cpr` which shadowed the Unix `cp`
+> command. The aliases were renamed to `ghcp`/`ghcpy`/`ghcpr` for safety.
+
+## Language Version Managers
+
+- **Ruby:** managed with [rbenv](https://github.com/rbenv/rbenv)
+- **Python:** managed with [pyenv](https://github.com/pyenv/pyenv)
+
+Both are initialized in `.zshrc`. Ruby builds use Homebrew's `openssl@3`.
+
+## Notable Aliases
+
+See `cfg/aliases` for the full list. Highlights:
+
+| Alias | Purpose |
 |-------|---------|
-| `ghcp` | `copilot` |
-| `ghcpy` | `copilot --yolo` (auto-approve) |
-| `ghcpr` | `copilot --continue` (resume session) |
+| `to.<name>` | Quick `cd` to workspace directories (`to.ios`, `to.swift`, `to.dot`, etc.) |
+| `buou` | `brew update && brew outdated && brew upgrade && brew cleanup` |
+| `brew.backup` | Dump current Brewfile |
+| `brew.restore` | Install from Brewfile |
+| `reload` | Re-source `~/.zshrc` |
+| `edot` | Open dotfiles in Sublime Text |
+| `xc_clean` | Flush Xcode caches and DerivedData |
+| `dump.ident` | List code signing identities |
+| `fc.chi` | Weather for Chicago via wttr.in |
+| `fdir` | `find . -type d -name` (renamed from `fd` to avoid conflict) |
+| `ff` | `find . -type f -name` |
+| `mdc <dir>` | `mkdir -p` and `cd` into it |
+| `popcommands` | Show most-used commands from shell history |
