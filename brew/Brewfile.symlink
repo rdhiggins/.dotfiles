@@ -29,6 +29,8 @@ brew "nmap"
 brew "tree"
 brew "swiftformat"
 brew "swiftlint"
+brew "ruby-build"
+brew "python-build"
 
 # Language version manager (replaces rbenv, pyenv, nvm)
 brew "mise"
