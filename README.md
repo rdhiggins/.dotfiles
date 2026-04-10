@@ -29,8 +29,8 @@ brew bundle --file=~/.Brewfile
 | `bash/` | Legacy bash configs (`.bashrc`, `.bash_profile`) |
 | `bin/` | Custom scripts (symlinked to `~/bin`) |
 | `brew/` | Homebrew Brewfile |
-| `cfg/` | Shared aliases and environment variables |
-| `gist/` | Ack search config |
+| `cfg/` | Shared aliases, environment variables, and ripgrep config |
+| `gist/` | Legacy ack search config (see ripgrep below) |
 | `git/` | Git config and global gitignore |
 | `lldb/` | LLDB debugger scripts (symlinked to `~/.lldb`) |
 | `mise/` | mise version manager config (symlinked to `~/.config/mise/config.toml`) |
@@ -119,7 +119,32 @@ When `bat` is installed:
 | `cat` | `bat --paging=never` |
 | `catp` | `bat` (with paging) |
 
+When `ripgrep` (`rg`) is installed:
+
+| Alias | Expands to | Purpose |
+|-------|------------|---------|
+| `rgl` | `rg -l` | List matching filenames only |
+| `rgc` | `rg --count` | Count matches per file |
+| `rgw` | `rg -w` | Whole-word match |
+| `rgi` | `rg --no-ignore` | Search gitignored files too |
+| `rgf` | `rg --files \| rg` | Find filenames matching a pattern |
+
 If neither tool is installed, `dir` and `cat` behave normally.
+
+## ripgrep Configuration
+
+A shared `~/.ripgreprc` (from `cfg/ripgreprc.symlink`) sets sensible defaults
+ported from the legacy `ackrc`:
+
+- **Smart case** — case-insensitive unless the pattern has uppercase letters
+- **Follow symlinks**
+- **Sorted output** — results ordered by file path
+- **Ignore dirs** — `vendor/`, `log/`, `tmp/`, `coverage/`, `public/assets/`,
+  `node_modules/` (supplements `.gitignore`)
+- **Custom types** — `--type web`, `--type config`, `--type cucumber`,
+  `--type swift`, `--type erb`, `--type haml`
+
+The config path is exported as `RIPGREP_CONFIG_PATH` in `cfg/env`.
 
 ## Zsh Completions
 

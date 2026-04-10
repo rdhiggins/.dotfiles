@@ -20,6 +20,14 @@ if command -v bat &>/dev/null; then
   alias catp='bat'
 fi
 
+if command -v rg &>/dev/null; then
+  alias rgl='rg -l'             # list matching files only
+  alias rgc='rg --count'        # count matches per file
+  alias rgw='rg -w'             # whole word match
+  alias rgi='rg --no-ignore'    # search ignored files too
+  alias rgf='rg --files | rg'   # fuzzy find filenames
+fi
+
 alias tu='top -o cpu'       # cpu
 alias tm='top -o vsize'     # Memory
 

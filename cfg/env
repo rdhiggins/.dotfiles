@@ -5,3 +5,6 @@ export BUNDLER_EDITOR="subl"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# ripgrep config
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

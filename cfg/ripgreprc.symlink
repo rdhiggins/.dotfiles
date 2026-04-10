@@ -1,0 +1,28 @@
+# ripgrep config (~/.ripgreprc)
+# Docs: https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+
+# Smart case: case-insensitive unless pattern has uppercase
+--smart-case
+
+# Follow symlinks
+--follow
+
+# Sort results by file path for consistent output
+--sort=path
+
+# Ignore common non-source directories (supplements .gitignore)
+--glob=!vendor/
+--glob=!log/
+--glob=!tmp/
+--glob=!coverage/
+--glob=!public/assets/
+--glob=!node_modules/
+--glob=!.git/
+
+# Custom type definitions (ported from ackrc + extras)
+--type-add=web:*.{html,css,scss,sass,less,js,ts,tsx,jsx,vue,svelte}
+--type-add=config:*.{json,yaml,yml,toml,ini,cfg,conf}
+--type-add=cucumber:*.feature
+--type-add=swift:*.swift
+--type-add=erb:*.{erb,html.erb}
+--type-add=haml:*.{haml,html.haml}
