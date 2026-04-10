@@ -2,6 +2,7 @@
 #
 # Check if dotfiles are up-to-date with the remote (once per day).
 # Sources from .zshrc. Prompts the user to pull if behind.
+# After pulling: re-links symlinks and offers brew bundle if Brewfile changed.
 #
 
 _dotfiles_update_check() {
@@ -71,9 +72,37 @@ _dotfiles_update_check() {
     echo -n "   Pull latest? [y/N] "
     if read -q; then
       echo ""
-      git -C "$dotdir" pull --rebase --quiet origin && \
-        echo "\033[1;32m   ✓ Dotfiles updated.\033[0m" || \
+
+      # Remember HEAD before pull to detect what changed
+      local pre_pull_head=$(git -C "$dotdir" rev-parse HEAD 2>/dev/null)
+
+      if git -C "$dotdir" pull --rebase --quiet origin; then
+        echo "\033[1;32m   ✓ Dotfiles updated.\033[0m"
+
+        # Re-establish symlinks (picks up new/renamed config files)
+        echo "\033[1;34m   → Updating symlinks...\033[0m"
+        source "$dotdir/scripts/install.sh"
+        install_dotfiles
+        echo "\033[1;32m   ✓ Symlinks updated.\033[0m"
+
+        # Check if Brewfile changed in the pulled commits
+        if git -C "$dotdir" diff --name-only "$pre_pull_head"..HEAD 2>/dev/null | grep -q 'Brewfile'; then
+          echo ""
+          echo "\033[1;33m   📦 Brewfile has changed.\033[0m"
+          echo -n "   Run brew bundle to install new packages? [y/N] "
+          if read -q; then
+            echo ""
+            brew bundle --file="$HOME/.Brewfile" && \
+              echo "\033[1;32m   ✓ Brew packages updated.\033[0m" || \
+              echo "\033[1;31m   ✗ brew bundle failed. Run manually: brew bundle --file=~/.Brewfile\033[0m"
+          else
+            echo ""
+            echo "   Skipped. Run \033[1mbrew bundle --file=~/.Brewfile\033[0m manually."
+          fi
+        fi
+      else
         echo "\033[1;31m   ✗ Pull failed. Run 'cd ~/.dotfiles && git pull' manually.\033[0m"
+      fi
     else
       echo ""
       echo "   Skipped. Run \033[1mdot\033[0m to update manually."
