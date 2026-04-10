@@ -25,9 +25,10 @@ install_dotfiles () {
   link_file "$DOTFILES_ROOT/bin" "$HOME/bin"
   link_file "$DOTFILES_ROOT/lldb" "$HOME/.lldb"
 
-  # Starship config (goes in ~/.config/, not ~/.)
-  mkdir -p "$HOME/.config"
+  # ~/.config/ symlinks (Starship, mise)
+  mkdir -p "$HOME/.config" "$HOME/.config/mise"
   link_file "$DOTFILES_ROOT/starship/starship.toml.symlink" "$HOME/.config/starship.toml"
+  link_file "$DOTFILES_ROOT/mise/config.toml.symlink" "$HOME/.config/mise/config.toml"
 }
 
 # Run if executed directly (not sourced)

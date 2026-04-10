@@ -33,6 +33,7 @@ brew bundle --file=~/.Brewfile
 | `gist/` | Ack search config |
 | `git/` | Git config and global gitignore |
 | `lldb/` | LLDB debugger scripts (symlinked to `~/.lldb`) |
+| `mise/` | mise version manager config (symlinked to `~/.config/mise/config.toml`) |
 | `pry/` | Ruby Pry REPL config |
 | `rails/` | Rails application template |
 | `scripts/` | Install/setup scripts |
