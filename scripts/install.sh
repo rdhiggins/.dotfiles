@@ -32,3 +32,7 @@ install_dotfiles
 # Bin Directory
 link_file ~/.dotfiles/bin ~/bin
 link_file ~/.dotfiles/lldb ~/.lldb
+
+# Starship config (goes in ~/.config/, not ~/.)
+mkdir -p "$HOME/.config"
+link_file ~/.dotfiles/starship/starship.toml.symlink "$HOME/.config/starship.toml"

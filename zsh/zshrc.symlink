@@ -5,7 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 DOT=$HOME/.dotfiles
 
 # Set name of the theme to load.
-ZSH_THEME="robbyrussell"
+# Disabled — using Starship prompt instead of an OMZ theme
+ZSH_THEME=""
 
 DISABLE_UPDATE_PROMPT=true
 
@@ -14,9 +15,8 @@ plugins=(git brew macos rails rake node npm python bundler ruby encode64 xcode)
 
 source $ZSH/oh-my-zsh.sh
 
-# Prompt configuration
-source ~/bin/git-prompt.sh
-source $DOT/zsh/prompt.sh
+# Prompt — Starship (config: ~/.config/starship.toml, shared via dotfiles)
+eval "$(starship init zsh)"
 
 # Local file for keys and stuff
 if [[ -a ~/.localrc ]]; then

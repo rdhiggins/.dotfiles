@@ -13,6 +13,7 @@ brew "fd"             # find replacement
 brew "fzf"            # fuzzy finder
 brew "git-delta"      # better git diffs
 brew "ripgrep"        # grep replacement
+brew "starship"       # cross-shell prompt
 brew "zoxide"         # cd/autojump replacement
 
 # Development tools

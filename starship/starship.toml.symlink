@@ -1,0 +1,76 @@
+# Starship prompt configuration
+# Symlinked to ~/.config/starship.toml via dotfiles installer
+# https://starship.rs/config/
+
+format = """
+[$username@$hostname $directory](bold)
+[$time$git_branch$git_status$git_state$ruby$python$swift$nodejs$package$cmd_duration](bold)
+$character"""
+
+# Prompt character — green on success, red on error
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red)"
+
+[username]
+show_always = true
+style_user = "magenta"
+style_root = "bold red"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold green"
+format = "[$hostname]($style)"
+
+[directory]
+style = "bold yellow"
+truncation_length = 5
+truncate_to_repo = false
+
+[time]
+disabled = false
+style = "bold cyan"
+format = "[$time]($style) "
+time_format = "%T"
+
+[git_branch]
+style = "bold red"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold red"
+format = '([$all_status$ahead_behind]($style) )'
+stashed = '\$'
+modified = '*'
+untracked = '%%'
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇡${ahead_count}⇣${behind_count}'
+
+[git_state]
+style = "bold yellow"
+
+[cmd_duration]
+min_time = 2000
+style = "bold yellow"
+format = "took [$duration]($style) "
+
+[ruby]
+style = "bold red"
+format = "via [$symbol($version)]($style) "
+
+[python]
+style = "bold blue"
+format = 'via [${symbol}(${version})(\($virtualenv\))]($style) '
+
+[swift]
+style = "bold 208"
+format = "via [$symbol($version)]($style) "
+
+[nodejs]
+style = "bold green"
+format = "via [$symbol($version)]($style) "
+
+[package]
+disabled = true

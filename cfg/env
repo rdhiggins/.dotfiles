@@ -1,13 +1,5 @@
 #!/bin/bash
 
-#
-# git-prompt.sh settings
-#
-export GIT_PS1_SHOWDIRTYSTATE="Yes"
-export GIT_PS1_SHOWSTASHSTATE="Yes"
-export GIT_PS1_SHOWUNTRACKEDFILES="Yes"
-export GIT_PS1_SHOWUPSTREAM="auto"
-
 export EDITOR="subl -w"
 export BUNDLER_EDITOR="subl"
 

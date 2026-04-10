@@ -36,12 +36,37 @@ brew bundle --file=~/.Brewfile
 | `pry/` | Ruby Pry REPL config |
 | `rails/` | Rails application template |
 | `scripts/` | Install/setup scripts |
-| `zsh/` | Zsh config, prompt, and completions |
+| `starship/` | Starship prompt config (symlinked to `~/.config/starship.toml`) |
+| `zsh/` | Zsh config and completions |
 
 ## Shell
 
 Primary shell is **Zsh** with [Oh My Zsh](https://ohmyz.sh/).
 Machine-specific secrets go in `~/.localrc` (not tracked).
+
+## Prompt — Starship
+
+The prompt is powered by [Starship](https://starship.rs/), a fast cross-shell
+prompt written in Rust. The configuration lives in
+`starship/starship.toml.symlink` and is symlinked to `~/.config/starship.toml`
+so it is **shared across machines** via the dotfiles repo.
+
+The prompt layout is two lines:
+
+```
+rdhiggins@mac ~/.dotfiles
+14:30:00 on  main *⇡1 via 💎 3.2.0 via 🐍 3.13 took 3s
+$
+```
+
+**Line 1:** user@host and current directory (yellow).
+**Line 2:** time (cyan), git branch + status (red), language versions shown
+automatically when relevant files are present, and elapsed time for slow
+commands (>2s). The `$` prompt turns red after a failed command.
+
+To customize, edit `starship/starship.toml.symlink` — changes are shared to
+every machine that pulls the dotfiles. See the
+[Starship config reference](https://starship.rs/config/) for all options.
 
 ## Automatic Update Check
 
