@@ -155,12 +155,22 @@ The git config (`git/gitconfig.symlink`) includes:
 > **Note:** Earlier versions used `cp`/`cpy`/`cpr` which shadowed the Unix `cp`
 > command. The aliases were renamed to `ghcp`/`ghcpy`/`ghcpr` for safety.
 
-## Language Version Managers
+## Language Version Manager — mise
 
-- **Ruby:** managed with [rbenv](https://github.com/rbenv/rbenv)
-- **Python:** managed with [pyenv](https://github.com/pyenv/pyenv)
+[mise](https://mise.jdx.dev/) manages Ruby, Python, Node, and other language
+runtimes in a single tool (replaces `rbenv`, `pyenv`, `nvm`).
 
-Both are initialized in `.zshrc`. Ruby builds use Homebrew's `openssl@3`.
+```bash
+mise use --global ruby@3.3       # set global Ruby version
+mise use --global python@3.13    # set global Python version
+mise use node@22                 # pin Node for the current project
+mise ls                          # list installed versions
+mise install                     # install versions from .mise.toml
+```
+
+Per-project versions are configured via `.mise.toml` (or `.tool-versions`)
+and activate automatically when you `cd` into the directory. Global defaults
+live in `~/.config/mise/config.toml`.
 
 ## Notable Aliases
 

@@ -30,9 +30,7 @@ brew "tree"
 brew "swiftformat"
 brew "swiftlint"
 
-# Language version managers
-brew "pyenv"
-brew "python@3.13"
-brew "rbenv"
+# Language version manager (replaces rbenv, pyenv, nvm)
+brew "mise"
 
 cask "macdown"

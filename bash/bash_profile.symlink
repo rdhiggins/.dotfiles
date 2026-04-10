@@ -2,8 +2,8 @@
 
 [[ -s ~/.bashrc ]] && source ~/.bashrc
 
-# rbenv
-eval "$(rbenv init -)"
+# mise — manages Ruby, Python, Node, and other language versions
+eval "$(mise activate bash)"
 
 # Poetry (modern path)
 export PATH="$HOME/.local/bin:$PATH"
