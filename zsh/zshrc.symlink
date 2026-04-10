@@ -64,3 +64,6 @@ command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 # fzf key bindings and completion
 command -v fzf >/dev/null && eval "$(fzf --zsh)"
+
+# Check for dotfiles updates (once per day)
+source $DOT/zsh/dotfiles_update_check.sh
