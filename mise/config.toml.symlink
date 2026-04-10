@@ -1,7 +1,8 @@
 [tools]
-python = "3.10.5"
+python = "3.14.4"
 ruby = "4.0.2"
 
 [settings]
-http_timeout = "300"
-fetch_remote_versions_timeout = "300"
+
+[settings.python]
+compile = true
