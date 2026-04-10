@@ -4,7 +4,7 @@
 
 format = """
 [$username@$hostname $directory](bold)
-[$time$git_branch$git_status$git_state$ruby$python$swift$nodejs$package$cmd_duration](bold)
+[$time$git_branch$git_status$git_state${custom.dotfiles}$ruby$python$swift$nodejs$package$cmd_duration](bold)
 $character"""
 
 # Prompt character — green on success, red on error
@@ -74,3 +74,10 @@ format = "via [$symbol($version)]($style) "
 
 [package]
 disabled = true
+
+# Indicator for uncommitted changes in ~/.dotfiles
+[custom.dotfiles]
+command = "echo '✗'"
+when = "git -C ~/.dotfiles status --porcelain 2>/dev/null | grep -q ."
+format = "[dotfiles $output]($style) "
+style = "bold 208"
