@@ -2,17 +2,8 @@
 
 [[ -s ~/.bashrc ]] && source ~/.bashrc
 
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-
+# rbenv
 eval "$(rbenv init -)"
 
-# added by Anaconda3 4.4.0 installer
-export PATH="/Users/rdhiggins/anaconda/bin:$PATH"
-
-# added by Anaconda3 4.4.0 installer
-export PATH="/Users/rdhiggins/anaconda3/bin:$PATH"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export PATH="$HOME/.poetry/bin:$PATH"
+# Poetry (modern path)
+export PATH="$HOME/.local/bin:$PATH"

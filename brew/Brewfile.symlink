@@ -1,12 +1,25 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-brew "autojump"
-brew "awk"
-brew "cmake"
-brew "curl"
-brew "gcc"
+
+# Core tools
 brew "git"
+brew "gh"
+brew "curl"
+brew "wget"
+brew "zsh"
+brew "openssl@3"
+
+# Modern CLI replacements
+brew "bat"            # cat replacement with syntax highlighting
+brew "eza"            # ls replacement (successor to exa)
+brew "fd"             # find replacement
+brew "fzf"            # fuzzy finder
+brew "git-delta"      # better git diffs
+brew "ripgrep"        # grep replacement
+brew "zoxide"         # cd/autojump replacement
+
+# Development tools
+brew "cmake"
+brew "gcc"
 brew "htop"
 brew "httpie"
 brew "jq"
@@ -14,14 +27,13 @@ brew "midnight-commander"
 brew "mint"
 brew "ninja"
 brew "nmap"
-brew "openssl@3"
-brew "pipenv"
-brew "pyenv"
-brew "python@3.9"
-brew "rbenv"
+brew "tree"
 brew "swiftformat"
 brew "swiftlint"
-brew "tree"
-brew "wget"
-brew "zsh"
+
+# Language version managers
+brew "pyenv"
+brew "python@3.13"
+brew "rbenv"
+
 cask "macdown"

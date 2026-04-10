@@ -1,0 +1,92 @@
+#compdef copilot
+
+# Zsh completion for GitHub Copilot CLI
+
+_copilot_commands() {
+  local -a commands
+  commands=(
+    'help:Display help information'
+    'init:Initialize Copilot instructions'
+    'login:Authenticate with Copilot'
+    'mcp:Manage MCP servers'
+    'plugin:Manage plugins'
+    'update:Download the latest version'
+    'version:Display version information'
+  )
+  _describe 'command' commands
+}
+
+_copilot() {
+  local -a opts
+  opts=(
+    '(-h --help)'{-h,--help}'[Display help]'
+    '(-v --version)'{-v,--version}'[Show version information]'
+    '(-p --prompt)'{-p,--prompt}'[Execute a prompt in non-interactive mode]:prompt text:'
+    '(-i --interactive)'{-i,--interactive}'[Start interactive mode with a prompt]:prompt text:'
+    '(-s --silent)'{-s,--silent}'[Output only the agent response]'
+    '--continue[Resume the most recent session]'
+    '--resume=[Resume a previous session]:session ID:'
+    '--model=[Set the AI model to use]:model:'
+    '--mode=[Set the initial agent mode]:mode:(interactive plan autopilot)'
+    '--autopilot[Start in autopilot mode]'
+    '--plan[Start in plan mode]'
+    '--yolo[Enable all permissions]'
+    '--allow-all[Enable all permissions]'
+    '--allow-all-tools[Allow all tools without confirmation]'
+    '--allow-all-paths[Allow access to any path]'
+    '--allow-all-urls[Allow access to all URLs]'
+    '--allow-tool=[Tools the CLI has permission to use]:tool:'
+    '--deny-tool=[Tools the CLI does not have permission to use]:tool:'
+    '--allow-url=[Allow access to specific URLs]:url:'
+    '--deny-url=[Deny access to specific URLs]:url:'
+    '--add-dir=[Add a directory to the allowed list]:directory:_directories'
+    '--config-dir=[Set the configuration directory]:directory:_directories'
+    '--log-dir=[Set log file directory]:directory:_directories'
+    '--log-level=[Set the log level]:level:(none error warning info debug all default)'
+    '--effort=[Set reasoning effort level]:level:(low medium high xhigh)'
+    '--output-format=[Output format]:format:(text json)'
+    '--agent=[Specify a custom agent]:agent:'
+    '--no-color[Disable all color output]'
+    '--no-custom-instructions[Disable loading custom instructions]'
+    '--no-auto-update[Disable auto-update]'
+    '--experimental[Enable experimental features]'
+    '--no-experimental[Disable experimental features]'
+    '--screen-reader[Enable screen reader optimizations]'
+    '--banner[Show the startup banner]'
+    '--plain-diff[Disable rich diff rendering]'
+    '--no-ask-user[Disable the ask_user tool]'
+    '--share=[Share session to markdown file]:file:_files'
+    '--share-gist[Share session to a secret GitHub gist]'
+    '--stream=[Enable or disable streaming]:mode:(on off)'
+    '--additional-mcp-config=[Additional MCP config as JSON or file path]:config:'
+    '--disable-builtin-mcps[Disable all built-in MCP servers]'
+    '--disable-mcp-server=[Disable a specific MCP server]:server name:'
+    '--plugin-dir=[Load a plugin from a local directory]:directory:_directories'
+  )
+
+  _arguments -s $opts \
+    '1:command:_copilot_commands' \
+    '*::arg:->args'
+
+  case $state in
+    args)
+      case $words[1] in
+        help)
+          local -a topics
+          topics=(
+            'commands:Interactive Mode Commands'
+            'config:Configuration Settings'
+            'environment:Environment Variables'
+            'logging:Logging'
+            'monitoring:Monitoring with OpenTelemetry'
+            'permissions:Permissions'
+            'providers:Custom Model Providers (BYOK)'
+          )
+          _describe 'help topic' topics
+          ;;
+      esac
+      ;;
+  esac
+}
+
+_copilot "$@"

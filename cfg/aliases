@@ -4,7 +4,22 @@ alias hdu='du -h . | grep "^[0-9\.]\+G"'
 alias ds="du -h -d 1"
 alias cpdir="pwd | pbcopy"
 
-alias dir="ls -laGh"
+# Modern CLI tool aliases (use modern tools when available, fall back to originals)
+if command -v eza &>/dev/null; then
+  alias ls='eza'
+  alias dir='eza -la --git --icons'
+  alias ll='eza -la --git --icons'
+  alias lt='eza -la --tree --level=2 --icons'
+else
+  alias dir="ls -laGh"
+  alias ll="ls -laGh"
+fi
+
+if command -v bat &>/dev/null; then
+  alias cat='bat --paging=never'
+  alias catp='bat'
+fi
+
 alias tu='top -o cpu'       # cpu
 alias tm='top -o vsize'     # Memory
 
@@ -48,7 +63,6 @@ alias greset='git checkout -- .'
 
 # Homebrew
 alias buou='brew update && brew outdated && brew upgrade && brew cleanup'
-alias brew.install='brew tap Homebrew/bundle'
 alias brew.backup='brew bundle dump --file=~/.Brewfile -f'
 alias brew.restore='brew bundle --file=~/.Brewfile'
 alias brew.list='cat ~/.Brewfile'
@@ -58,6 +72,11 @@ alias brew.clean='brew bundle cleanup --file=~/.Brewfile'
 alias fc.chi='curl "http://wttr.in/Chicago?u"'
 alias fc.moon='curl "http://wttr.in/moon?u"'
 alias fc.help='curl "http://wttr.in/:help"'
+
+# GitHub Copilot CLI (avoid shadowing Unix cp)
+alias ghcp='copilot'
+alias ghcpy='copilot --yolo'
+alias ghcpr='copilot --continue'
 
 function xc_clean {
   rm -rf ~/Library/Caches/com.apple.dt.Xcode/
@@ -79,9 +98,6 @@ alias dump.ident='security find-identity -v -p codesigning'
 
 alias ssh-cs='ssh-add ~/.ssh/codespace_ssh_key'
 alias ssh-syn='ssh-add ~/.ssh/id_synology'
-
-# Glyph
-alias glyph='open ~/Workspace/html/glyphicons_pro/glyphicons/web/html_css/index.html'
 
 # Quicklook
 alias ql='qlmanage -p $@'
@@ -112,14 +128,13 @@ function nr {
   rails new ${1} --skip-test-unit -m ~/.dotfiles/rails/app_template.rb
 }
 
-# File & Directory finding aliases
+# File & Directory finding aliases (fdir avoids conflict with fd tool)
 alias ff='noglob find . -type f -name '
 alias ff.h='noglob find ~ -type f -name '
-alias fd='noglob find . -type d -name '
-alias fd.h='noglob find ~ -type f -name '
+alias fdir='noglob find . -type d -name '
+alias fdir.h='noglob find ~ -type d -name '
 
-# Command that makes a directory and optionally change into it
-# once it has been created
+# Command that makes a directory and cd into it
 function mdc {
   mkdir -p "$1" && cd "$1"
 }
@@ -132,8 +147,6 @@ function mf {
 
 # Commands used to testing a rails application in production mode
 function rails_production {
-  # RAILS_ENV=production bundle exec rake db:migrate
-  # RAILS_ENV=production bundle exec rake db:seed
   RAILS_ENV=production bundle exec rake assets:precompile
   RAILS_ENV=production bundle exec rails s
 }
@@ -161,10 +174,6 @@ function nrs {
   newrubyscript $1
   edit $1
   popd > /dev/null
-}
-
-function mountAndroid {
-  hdiutil attach ~/Development/android-source/android.dmg.sparseimage -mountpoint /Volumes/android
 }
 
 function code () {

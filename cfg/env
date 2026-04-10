@@ -1,16 +1,15 @@
 #!/bin/bash
 
-
 #
-# git-prompt.sh stuff
+# git-prompt.sh settings
 #
 export GIT_PS1_SHOWDIRTYSTATE="Yes"
 export GIT_PS1_SHOWSTASHSTATE="Yes"
 export GIT_PS1_SHOWUNTRACKEDFILES="Yes"
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-export EDITOR="atom -w"
-export BUNDLER_EDITOR="sublime"
+export EDITOR="subl -w"
+export BUNDLER_EDITOR="subl"
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
