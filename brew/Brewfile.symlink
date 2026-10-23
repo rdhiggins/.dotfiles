@@ -1,38 +1,96 @@
-# Core tools
-brew "git"
-brew "gh"
-brew "curl"
-brew "wget"
-brew "zsh"
+tap "getsentry/xcodebuildmcp"
+tap "homebrew/bundle"
+tap "xcodesorg/made", trusted: { formulae: ["xcodes"] }
+# Download with resuming and segmented downloading
+brew "aria2"
+# Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
-
-# Modern CLI replacements
-brew "bat"            # cat replacement with syntax highlighting
-brew "eza"            # ls replacement (successor to exa)
-brew "fd"             # find replacement
-brew "fzf"            # fuzzy finder
-brew "git-delta"      # better git diffs
-brew "ripgrep"        # grep replacement
-brew "starship"       # cross-shell prompt
-brew "zoxide"         # cd/autojump replacement
-
-# Development tools
+# Shell extension to jump to frequently used directories
+brew "autojump"
+# Text processing scripting language
+brew "awk"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Cross-platform make
 brew "cmake"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
 brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Improved top (interactive process viewer)
 brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Terminal-based visual file manager
 brew "midnight-commander"
+# Dependency manager that installs and runs Swift command-line tool packages
 brew "mint"
-brew "ninja"
-brew "nmap"
-brew "tree"
-brew "swiftformat"
-brew "swiftlint"
-brew "ruby-build"
-brew "python-build"
-
-# Language version manager (replaces rbenv, pyenv, nvm)
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
-
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Port scanning utility for large networks
+brew "nmap"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Python dependency management tool
+brew "pipenv"
+# Python package management tool
+brew "poetry"
+# Python version management
+brew "pyenv"
+# Simple, correct PEP 517 build frontend
+brew "python-build"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Ruby version manager
+brew "rbenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Formatting tool for reformatting Swift code
+brew "swiftformat"
+# Tool to enforce Swift style and conventions
+brew "swiftlint"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Internet file retriever
+brew "wget"
+# Command-line tool to install and switch between multiple versions of Xcode
+brew "xcodes"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Brings the power of Copilot coding agent directly to your terminal
+cask "copilot-cli"
+# Xcode extension for GitHub Copilot
+cask "github-copilot-for-xcode"
+# Open-source Markdown editor
 cask "macdown"
+npm "coffee-script"
+npm "gulp"
+npm "json-server"
