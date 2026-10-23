@@ -30,6 +30,7 @@ brew bundle --file=~/.Brewfile
 | `bin/` | Custom scripts (symlinked to `~/bin`) |
 | `brew/` | Homebrew Brewfile |
 | `cfg/` | Shared aliases, environment variables, and ripgrep config |
+| `copilot/` | Shared Copilot CLI settings, instructions, skills, and agents |
 | `gist/` | Legacy ack search config (see ripgrep below) |
 | `git/` | Git config and global gitignore |
 | `lldb/` | LLDB debugger scripts (symlinked to `~/.lldb`) |
@@ -171,6 +172,36 @@ The git config (`git/gitconfig.symlink`) includes:
 - **Git LFS** enabled
 
 ## GitHub Copilot CLI
+
+The installer links individual entries from `copilot/` into `~/.copilot/`:
+
+- `settings.json`: shared settings, including plugin marketplaces and enabled plugins
+- `copilot-instructions.md`: personal instructions
+- `instructions/`: scoped `*.instructions.md` files
+- `skills/`: personal skills
+- `agents/`: custom agents
+
+Existing files, directories, or conflicting symlinks are moved to
+`~/.copilot/backups/dotfiles.*/` before linking. Installation is safe to repeat.
+Review those backups and manually merge any settings or customizations you
+want to keep; the shared configuration takes precedence.
+
+On another machine, pull this repository and run `./scripts/install.sh`, then
+sign in to Copilot separately. Keep the CLI version and plugin/tool
+installations consistent on each machine; installed plugin directories are
+not synced by these links.
+
+Credentials, `config.json`, MCP configuration, sessions, logs, caches, and
+plugin runtime data remain local. Never put secrets or machine-specific
+absolute paths in the shared configuration. Put local environment secrets
+in `~/.localrc`.
+
+Edit shared settings in `copilot/settings.json`. If a CLI settings change
+replaces the symlink with a regular file, merge the changes into that shared
+file and rerun the installer to restore the link.
+
+Run the install regression check with `bash scripts/test-install.sh`; it uses
+a temporary home directory without changing your real dotfiles.
 
 | Alias | Command | Description |
 |-------|---------|-------------|
